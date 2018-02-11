@@ -2,7 +2,11 @@ import actors.serviteurs.SanglierBrocheroc;
 import actors.Serviteur;
 import decorators.ActionServiteurAddDegats;
 import decorators.ActionServiteurAddVie;
+import decorators.ActionServiteurSubVie;
+import jeu.Jeu;
+import sun.rmi.runtime.Log;
 import utils.LogType;
+import utils.Player;
 import utils.Tools;
 
 
@@ -29,7 +33,10 @@ public class Main {
         //TOOLS DEMO END
 
         //DECORATOR DEMO
-        Serviteur serviteur = new SanglierBrocheroc();
+
+        Jeu jeu = new Jeu();
+
+      /*  Serviteur serviteur = new SanglierBrocheroc(Player.JOUEUR1);
         Tools.log((serviteur.getNom() + " - degats: " + serviteur.getDegats() + " - vie: " + serviteur.getVie()), LogType.INFO);
 
         serviteur = new ActionServiteurAddDegats(serviteur, 9);
@@ -37,6 +44,30 @@ public class Main {
 
         Tools.log((serviteur.getNom() + " - degats: " + serviteur.getDegats() + " - vie: " + serviteur.getVie()), LogType.INFO);
         //DECORATOR DEMO END
+
+*/
+
+
+        Player player = Tools.readPlayer();
+        System.out.println(player.toString());
+
+        SanglierBrocheroc sanglier = new SanglierBrocheroc(Player.JOUEUR1);
+
+
+        Jeu.getPlateau().addCarte(player, (Serviteur) sanglier.clone());
+        Jeu.getPlateau().addCarte(player, (Serviteur) sanglier.clone());
+
+        Serviteur selectedServiteur = Tools.readServiteur(player);
+        Jeu.getPlateau().actionOnCard(player,selectedServiteur, new ActionServiteurAddVie(null, 5));
+        Tools.log(Jeu.getPlateau().afficheCartesJ1(), LogType.INFO);
+
+        selectedServiteur = Tools.readServiteur(player);
+        Jeu.getPlateau().actionOnCard(player,selectedServiteur, new ActionServiteurAddVie(null, 5));
+        Tools.log(Jeu.getPlateau().afficheCartesJ1(), LogType.INFO);
+
+
+        Jeu.getPlateau().actionOnCards(player, new ActionServiteurSubVie(null,6));
+        Tools.log(Jeu.getPlateau().afficheCartesJ1(), LogType.INFO);
 
     }
 

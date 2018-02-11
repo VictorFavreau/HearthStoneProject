@@ -1,24 +1,41 @@
 package actors;
 
+import actors.sorts.effet.Effet;
+import utils.Player;
+
+import java.util.LinkedList;
+
 /**
  * author: Anais BESSON & Victor FAVREAU
  */
-public abstract class Serviteur extends Carte{
+public abstract class Serviteur extends Carte implements Cloneable{
 
 
     protected int degats;
     protected boolean sleeping;
     protected boolean provocation;
     protected boolean volVie;
+    protected LinkedList<Effet> effetsDie;
 
+    protected Serviteur(){
 
-    public Serviteur(){
-        super();
+    }
+
+    public Serviteur(Player createur){
+        super(createur);
+        this.effetsDie = new LinkedList<>();
+    }
+
+    public void executeEffetsDie(){
+        for(Effet effet: effetsDie){
+            effet.action();
+        }
     }
 
     /**
      * GETTERS
      */
+
 
     public int getDegats() {
         return degats;
@@ -36,4 +53,32 @@ public abstract class Serviteur extends Carte{
         return volVie;
     }
 
+    public Object clone(){
+        Object o = null;
+
+        try{
+            o = super.clone();
+        } catch(CloneNotSupportedException cnse){
+            cnse.printStackTrace();
+        }
+
+        return o;
+    }
+
+    @Override
+    public String toString() {
+
+        StringBuilder toStringBuilder = new StringBuilder("");
+
+        toStringBuilder.append(getNom() + " ");
+        toStringBuilder.append(getDegats() + ":" + getVie() + " ");
+
+        if(sleeping) toStringBuilder.append("sleeping ");
+        if(sleeping) toStringBuilder.append("provocation ");
+        if(sleeping) toStringBuilder.append("volvie ");
+
+        return toStringBuilder.toString();
+
+
+    }
 }

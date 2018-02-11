@@ -2,11 +2,12 @@ package actors.serviteurs;
 
 import actors.Serviteur;
 import actors.TypeClasse;
+import utils.Player;
 
 public class ChampionFriselame extends Serviteur {
 
-    public ChampionFriselame(){
-        super();
+    public ChampionFriselame(Player createur){
+        super(createur);
         this.typeCarte = TypeClasse.PALADIN;
         this.nom = "Chef de raid";
         this.description = "+1 d'attaque pour tous les serviteurs alliés du plateau (tant que ce serviteur est vivant).";

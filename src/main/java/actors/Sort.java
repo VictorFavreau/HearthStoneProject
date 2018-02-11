@@ -2,10 +2,16 @@ package actors;
 
 //TODO
 
+import utils.Player;
+
 public class Sort extends Carte{
 
-    public Sort(){
+    protected Sort(){
 
+    }
+
+    public Sort(Player createur){
+        super(createur);
     }
 
 }

@@ -2,11 +2,12 @@ package actors.serviteurs;
 
 import actors.Serviteur;
 import actors.TypeClasse;
+import utils.Player;
 
 public class ChevaucheurDeLoup  extends Serviteur {
 
-    public ChevaucheurDeLoup(){
-        super();
+    public ChevaucheurDeLoup(Player createur){
+        super(createur);
         this.typeCarte = TypeClasse.NEUTRE;
         this.nom = "Chevaucheur de loup";
         this.description = "";

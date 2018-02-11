@@ -2,11 +2,12 @@ package actors.serviteurs;
 
 import actors.Serviteur;
 import actors.TypeClasse;
+import utils.Player;
 
 public class SoldatCompteOr extends Serviteur {
 
-    public SoldatCompteOr(){
-        super();
+    public SoldatCompteOr(Player createur){
+        super(createur);
         this.typeCarte = TypeClasse.NEUTRE;
         this.nom = "Soldat du compté-de-l'or";
         this.description = "";

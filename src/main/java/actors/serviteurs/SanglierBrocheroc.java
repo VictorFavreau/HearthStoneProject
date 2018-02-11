@@ -2,11 +2,12 @@ package actors.serviteurs;
 
 import actors.Serviteur;
 import actors.TypeClasse;
+import utils.Player;
 
 public class SanglierBrocheroc  extends Serviteur {
 
-    public SanglierBrocheroc(){
-        super();
+    public SanglierBrocheroc(Player createur){
+        super(createur);
         this.typeCarte = TypeClasse.NEUTRE;
         this.nom = "Sanglier brocheroc";
         this.description = "";

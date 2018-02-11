@@ -1,6 +1,10 @@
 package decorators;
 
 import actors.Serviteur;
+import actors.sorts.effet.Effet;
+import utils.Player;
+
+import java.util.LinkedList;
 
 public abstract class ActionServiteur extends Serviteur {
 
@@ -9,6 +13,9 @@ public abstract class ActionServiteur extends Serviteur {
     protected ActionServiteur(){
         super();
     }
+
+    @Override
+    public Player getCreateur() { return serviteur.getCreateur(); }
 
     @Override
     public String getNom() {
@@ -39,6 +46,14 @@ public abstract class ActionServiteur extends Serviteur {
 
     @Override
     public boolean isVolVie(){ return serviteur.isVolVie(); }
+
+    @Override
+    public LinkedList<Effet> getEffets(){ return serviteur.getEffets(); }
+
+    public void setServiteur(Serviteur serviteur){
+        this.serviteur = serviteur;
+    }
+
 
 
 }

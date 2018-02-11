@@ -16,7 +16,7 @@ public abstract class Acteur {
      * @return true si le serviteur n'as plus de défense, false sinon
      */
     public boolean isDead(){
-        return this.vie <= 0;
+        return this.getVie() <= 0;
     }
 
     /**

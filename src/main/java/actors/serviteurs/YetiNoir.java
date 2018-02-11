@@ -2,11 +2,12 @@ package actors.serviteurs;
 
 import actors.Serviteur;
 import actors.TypeClasse;
+import utils.Player;
 
 public class YetiNoir extends Serviteur {
 
-    public YetiNoir(){
-        super();
+    public YetiNoir(Player createur){
+        super(createur);
         this.typeCarte = TypeClasse.NEUTRE;
         this.nom = "Yéti Noir";
         this.description = "";
