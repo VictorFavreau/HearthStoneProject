@@ -192,7 +192,7 @@ public class Plateau {
         //purge J2
         for(int i=0; i<serviteursJ2.size(); i++){
             if(serviteursJ2.get(i).isDead()){
-                Tools.log("Le Serviteur: " + serviteursJ2.get(i).getNom() + "meurt", LogType.WARNING);
+                Tools.log("Le Serviteur: " + serviteursJ2.get(i).getNom() + " meurt !", LogType.WARNING);
                 serviteursJ2.remove(i);
             }
         }

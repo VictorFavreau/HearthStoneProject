@@ -1,5 +1,7 @@
 package jeu;
 
+import actors.TypeClasse;
+
 public class Jeu {
 
     private static Plateau plateau;
@@ -12,8 +14,10 @@ public class Jeu {
 
     public void init(){
         plateau = new Plateau();
-        joueur1 = new Joueur();
-        joueur2 = new Joueur();
+
+        //TODO PAS NEUTRE !!!
+        joueur1 = new Joueur(TypeClasse.NEUTRE);
+        joueur2 = new Joueur(TypeClasse.NEUTRE);
     }
 
     public static Plateau getPlateau() {

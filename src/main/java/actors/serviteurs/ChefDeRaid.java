@@ -23,7 +23,7 @@ public class ChefDeRaid extends Serviteur {
         this.volVie = false;
 
         //Initialisation des effetsCarte
-        Effet effet = new Effet(TypeEffet.PLATEAU, createur);
+        Effet effet = new Effet(TypeEffet.PLATEAU, createur, "+1 d'attaque pour tous les serviteurs alliés du plateau (tant que ce serviteur est vivant)");
         effet.setActionServiteur(new ActionServiteurAddDegats(null, 1));
         this.effetsCarte.add(effet);
 

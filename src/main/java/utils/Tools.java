@@ -1,7 +1,11 @@
 package utils;
 
 
+import actors.Heros;
 import actors.Serviteur;
+import actors.heros.HerosGuerrier;
+import actors.heros.HerosMage;
+import actors.heros.HerosPaladin;
 import com.sun.deploy.util.StringUtils;
 import jeu.Jeu;
 
@@ -129,7 +133,7 @@ public class Tools {
         boolean valide = false;
         int value;
         Serviteur serviteur = null;
-        StringBuilder msg = new StringBuilder("Saisir le code du serviteur: \n");
+        StringBuilder msg = new StringBuilder("Saisir le code du serviteur cible: \n");
         String msgErreur = "Oups, il semblerait que le serviteur n'existe pas...";
 
         switch(joueur){
@@ -210,6 +214,39 @@ public class Tools {
 
         return player;
 
+    }
+
+    public static Heros readHeros(Player player){
+        boolean valide = false;
+        Heros heros = null;
+        int value;
+
+        String message = "Selectionnez la classe du "+ player + ": \n" + "(1) MAGE, (2) PALADIN, (3) GUERRIER";
+
+        while(!valide){
+
+            value = readIntegerValue(message);
+
+            switch(value){
+                case 1:
+                    heros = new HerosMage();
+                    valide = true;
+                    break;
+
+                case 2:
+                    heros = new HerosPaladin();
+                    valide = true;
+                    break;
+
+                case 3:
+                    heros = new HerosGuerrier();
+                    valide = true;
+                    break;
+            }
+
+        }
+
+        return heros;
     }
 
     /**

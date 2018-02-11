@@ -1,10 +1,8 @@
 import actors.serviteurs.SanglierBrocheroc;
 import actors.Serviteur;
-import decorators.ActionServiteurAddDegats;
 import decorators.ActionServiteurAddVie;
 import decorators.ActionServiteurSubVie;
 import jeu.Jeu;
-import sun.rmi.runtime.Log;
 import utils.LogType;
 import utils.Player;
 import utils.Tools;

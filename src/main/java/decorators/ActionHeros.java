@@ -22,4 +22,8 @@ public abstract class ActionHeros extends Heros{
     @Override
     public int getMana(){ return heros.getMana(); }
 
+    public void setHeros(Heros heros){
+        this.heros = heros;
+    }
+
 }
