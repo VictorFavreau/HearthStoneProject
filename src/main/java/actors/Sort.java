@@ -12,6 +12,7 @@ public class Sort extends Carte{
 
     public Sort(Player createur){
         super(createur);
+        this.typeActeur = TypeActeur.SORT;
     }
 
 }

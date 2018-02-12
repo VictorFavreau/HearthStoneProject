@@ -1,8 +1,7 @@
 package utils;
 
 
-import actors.Heros;
-import actors.Serviteur;
+import actors.*;
 import actors.heros.HerosGuerrier;
 import actors.heros.HerosMage;
 import actors.heros.HerosPaladin;
@@ -40,46 +39,110 @@ public class Tools {
 
     /**
      * Retourne l'action saisie par l'utilisateur
-     * @param msg message à afficher avant la saisie
      * @return InputType saisi
      */
-    public static InputType getInputType(String msg){
+    public static InputType getInputType(){
 
         InputType inputType = InputType.INVALIDE;
-        String str = readInput(msg);
+        StringBuilder message = new StringBuilder("Que souhaitez vous faire ?\n");
 
-        switch(str.toUpperCase()){
+        String str = readInput(message.toString());
 
-            case "J":
-                inputType = InputType.JOUER;
-                break;
+        while(inputType == InputType.INVALIDE){
+            switch(str.toUpperCase()){
 
-            case "Q":
-                inputType = InputType.QUITTER;
-                break;
+                case "J":
+                    inputType = InputType.JOUER;
+                    break;
 
-            case "H":
-                inputType = InputType.HELP;
-                break;
+                case "Q":
+                    inputType = InputType.QUITTER;
+                    break;
 
-            case "A":
-                inputType = InputType.ATTAQUER;
-                break;
+                case "H":
+                    inputType = InputType.HELP;
+                    break;
 
-            case "P":
-                inputType = InputType.POSER;
-                break;
+                case "A":
+                    inputType = InputType.ATTAQUER;
+                    break;
 
-            case "F":
-                inputType = InputType.FIN_TOUR;
-                break;
+                case "P":
+                    inputType = InputType.POSER;
+                    break;
 
-            default:
-                inputType = InputType.INVALIDE;
-                break;
+                case "F":
+                    inputType = InputType.FIN_TOUR;
+                    break;
+
+                default:
+                    log("Bien tenté, mais il m'est impossible d'effectuer l'action "+ str.toUpperCase() + " désolé... Recommencez !", LogType.WARNING);
+                    break;
+            }
         }
 
         return inputType;
+    }
+
+    public static TypeActeur getTypeCible(){
+
+        TypeActeur cible = TypeActeur.INVALIDE;
+        String message = "Que ciblez vous ? (H) HEROS, (S) SERVITEUR";
+
+        String str = readInput(message);
+
+        while(cible != TypeActeur.INVALIDE && cible != TypeActeur.SORT){
+
+            switch(str.toUpperCase()){
+                case "H":
+                    cible = TypeActeur.HEROS;
+                    break;
+
+                case "S":
+                    cible = TypeActeur.SERVITEUR;
+                    break;
+
+                default:
+                    log("Oops, vous ne pouvez pas viser un " + str.toUpperCase() +" ! Did it again...", LogType.WARNING);
+                    break;
+            }
+        }
+
+        return cible;
+    }
+
+    public static TypeClasse getClasse(Player player){
+
+        TypeClasse classe = TypeClasse.NEUTRE;
+        StringBuilder msg = new StringBuilder("Choisir la classe du " + player + "\n");
+        msg.append("(M) Mage, Effet: Inflige un point de dégâts à un adversaire (Serviteur ou Heros)");
+        msg.append("(P) Paladin, Effet: Invoque un serviteur 'Recrue de la main d'argent' 1:1");
+        msg.append("(G) Guerrier, Effet: Confère 2 points d'armure au Heros");
+
+        String str = readInput(msg.toString());
+
+        while(classe == TypeClasse.NEUTRE){
+
+            switch(str.toUpperCase()){
+                case "M":
+                    classe = TypeClasse.MAGE;
+                    break;
+
+                case "P":
+                    classe = TypeClasse.PALADIN;
+                    break;
+
+                case "G":
+                    classe = TypeClasse.GUERRIER;
+                    break;
+
+                default:
+                    log("Sans vouloir vous vexer, il me semble que le Heros: " + str.toUpperCase() +" n'existe pas. Un petit effort !", LogType.WARNING);
+                    break;
+            }
+        }
+
+        return classe;
     }
 
     /**
@@ -94,6 +157,8 @@ public class Tools {
 
         return str;
     }
+
+
 
     /**
      * Retourne la valeur numerique saisie par l'utilisateur
@@ -111,13 +176,16 @@ public class Tools {
             log(msg, LogType.INFO);
             String str = sc.nextLine();
 
-            isInteger = str.chars().allMatch( Character::isDigit);
+            if(!str.equals("")){
+                isInteger = str.chars().allMatch( Character::isDigit);
 
-            if(isInteger){
-                value = Integer.parseInt(str);
-            } else {
-                log("Veuillez saisir une valeur valide !", LogType.WARNING);
+                if(isInteger){
+                    value = Integer.parseInt(str);
+                } else {
+                    log("Veuillez saisir une valeur valide !", LogType.WARNING);
+                }
             }
+
         }
 
         return value;
@@ -133,8 +201,8 @@ public class Tools {
         boolean valide = false;
         int value;
         Serviteur serviteur = null;
-        StringBuilder msg = new StringBuilder("Saisir le code du serviteur cible: \n");
-        String msgErreur = "Oups, il semblerait que le serviteur n'existe pas...";
+        StringBuilder msg = new StringBuilder("Saisir le code du serviteur: \n");
+        String msgErreur = "Oops, il semblerait que le serviteur n'existe pas...";
 
         switch(joueur){
             case JOUEUR1:
@@ -216,7 +284,20 @@ public class Tools {
 
     }
 
-    public static Heros readHeros(Player player){
+    public static LogType getLogPlayer(Player player){
+        switch(player){
+            case JOUEUR1:
+                return LogType.JOUEUR1;
+
+            case JOUEUR2:
+                return LogType.JOUEUR2;
+
+            default:
+                return LogType.NORMAL;
+        }
+    }
+
+    /*public static Heros readHeros(Player player){
         boolean valide = false;
         Heros heros = null;
         int value;
@@ -247,7 +328,7 @@ public class Tools {
         }
 
         return heros;
-    }
+    }*/
 
     /**
      * Formatteur de message

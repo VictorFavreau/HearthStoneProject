@@ -25,6 +25,14 @@ public abstract class Carte extends Acteur{
     public Carte(Player createur){
         this.createur = createur;
         this.effetsCarte = new LinkedList<>();
+
+        this.init();
+    }
+
+    private void init(){
+        for(Effet effet: effetsCarte){
+            effet.action();
+        }
     }
 
     public String getNom() {

@@ -52,8 +52,8 @@ public class Main {
         SanglierBrocheroc sanglier = new SanglierBrocheroc(Player.JOUEUR1);
 
 
-        Jeu.getPlateau().addCarte(player, (Serviteur) sanglier.clone());
-        Jeu.getPlateau().addCarte(player, (Serviteur) sanglier.clone());
+        Jeu.getPlateau().poseCarte(player, (Serviteur) sanglier.clone());
+        Jeu.getPlateau().poseCarte(player, (Serviteur) sanglier.clone());
 
         Serviteur selectedServiteur = Tools.readServiteur(player);
         Jeu.getPlateau().actionOnCard(player,selectedServiteur, new ActionServiteurAddVie(null, 5));

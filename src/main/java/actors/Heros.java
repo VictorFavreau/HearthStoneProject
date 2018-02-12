@@ -1,15 +1,20 @@
 package actors;
 
-public abstract class Heros extends Acteur{
+import actors.sorts.effet.Effet;
+import actors.sorts.effet.TypeEffet;
+
+public abstract class Heros extends Acteur {
 
     protected TypeClasse typeHeros;
     protected int defense;
     protected int stockMana;
     protected int mana;
-    //protected ActionSpeciale actionSpeciale; EN ATTENTE D'IMPLEMENTATION
+    protected Effet effetHeros;
+    protected Effet effetServiteur;
+    protected TypeActeur typeCibleEffet;
 
-    public Heros(){
-
+    public Heros() {
+        this.typeActeur = TypeActeur.HEROS;
     }
 
     /**
@@ -28,7 +33,19 @@ public abstract class Heros extends Acteur{
         return stockMana;
     }
 
-    public int getMana(){
+    public int getMana() {
         return mana;
+    }
+
+    public Effet getEffetHeros() {
+        return effetHeros;
+    }
+
+    public Effet getEffetServiteur() {
+        return effetServiteur;
+    }
+
+    public TypeActeur getTypeCibleEffet() {
+        return typeCibleEffet;
     }
 }

@@ -5,6 +5,7 @@ package actors;
  */
 public abstract class Acteur {
 
+    protected TypeActeur typeActeur;
     protected int vie;
 
     public Acteur(){
@@ -27,4 +28,7 @@ public abstract class Acteur {
         return vie;
     }
 
+    public TypeActeur getTypeActeur() {
+        return typeActeur;
+    }
 }

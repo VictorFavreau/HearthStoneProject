@@ -58,5 +58,7 @@ public class Joueur {
 
     }
 
+    public Heros getHeros(){ return this.heros; }
+
 
 }

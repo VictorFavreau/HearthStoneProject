@@ -1,7 +1,9 @@
 package actors;
 
 import actors.sorts.effet.Effet;
+import utils.LogType;
 import utils.Player;
+import utils.Tools;
 
 import java.util.LinkedList;
 
@@ -23,6 +25,7 @@ public abstract class Serviteur extends Carte implements Cloneable{
 
     public Serviteur(Player createur){
         super(createur);
+        this.typeActeur = TypeActeur.SERVITEUR;
         this.effetsDie = new LinkedList<>();
     }
 
@@ -35,7 +38,14 @@ public abstract class Serviteur extends Carte implements Cloneable{
     /**
      * GETTERS
      */
+    public void die(){
 
+        Tools.log("Le Serviteur: " + getNom() + " meurt !", LogType.WARNING);
+
+        for(Effet effetDie: effetsDie){
+            effetDie.action();
+        }
+    }
 
     public int getDegats() {
         return degats;
