@@ -45,11 +45,10 @@ public class Main {
 
 */
 
-
         Player player = Tools.readPlayer();
         System.out.println(player.toString());
 
-        SanglierBrocheroc sanglier = new SanglierBrocheroc(Player.JOUEUR1);
+        SanglierBrocheroc sanglier = new SanglierBrocheroc(player);
 
 
         Jeu.getPlateau().poseCarte(player, (Serviteur) sanglier.clone());
@@ -57,15 +56,15 @@ public class Main {
 
         Serviteur selectedServiteur = Tools.readServiteur(player);
         Jeu.getPlateau().actionOnCard(player,selectedServiteur, new ActionServiteurAddVie(null, 5));
-        Tools.log(Jeu.getPlateau().afficheCartesJ1(), LogType.INFO);
+        Tools.log(Jeu.getPlateau().afficheCartesJ1(), LogType.NORMAL);
 
         selectedServiteur = Tools.readServiteur(player);
         Jeu.getPlateau().actionOnCard(player,selectedServiteur, new ActionServiteurAddVie(null, 5));
-        Tools.log(Jeu.getPlateau().afficheCartesJ1(), LogType.INFO);
+        Tools.log(Jeu.getPlateau().afficheCartesJ1(), LogType.NORMAL);
 
-
+        Tools.log("Test action on cards", LogType.INFO);
         Jeu.getPlateau().actionOnCards(player, new ActionServiteurSubVie(null,6));
-        Tools.log(Jeu.getPlateau().afficheCartesJ1(), LogType.INFO);
+        Tools.log(Jeu.getPlateau().afficheCartesJ1(), LogType.NORMAL);
 
     }
 

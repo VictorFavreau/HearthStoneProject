@@ -8,41 +8,48 @@ import actors.heros.HerosGuerrier;
 import actors.heros.HerosMage;
 import actors.heros.HerosPaladin;
 import decorators.ActionHeros;
+import utils.Player;
 
 import java.util.LinkedList;
+
+import static actors.TypeClasse.MAGE;
 
 //TODO
 public class Joueur {
 
+    private TypeClasse classe;
+    private Player player;
     private Heros heros;
     private Deck deck;
     private LinkedList<Carte> main;
 
-    public Joueur(TypeClasse classe){
+    public Joueur(TypeClasse classe, Player player){
 
-        switch(classe){
+        this.classe = classe;
+        this.player = player;
+
+        this.main = new LinkedList<>();
+
+        init();
+    }
+
+    public void init(){
+        switch(this.classe){
             case MAGE:
-                this.heros = new HerosMage();
+                this.heros = new HerosMage(this.player);
                 //this.deck = new DeckMage();
                 break;
 
             case PALADIN:
-                this.heros = new HerosPaladin();
+                this.heros = new HerosPaladin(this.player);
                 //this.deck = new DeckPaladin();
                 break;
 
             case GUERRIER:
-                this.heros = new HerosGuerrier();
+                this.heros = new HerosGuerrier(this.player);
                 //this.deck = new DeckGuerrier();
                 break;
         }
-
-        this.main = new LinkedList<>();
-
-    }
-
-    public void init(){
-
     }
 
     public void actionOnHero(ActionHeros action){
@@ -55,7 +62,7 @@ public class Joueur {
     }
 
     public void pioche(){
-
+        //TODO
     }
 
     public Heros getHeros(){ return this.heros; }

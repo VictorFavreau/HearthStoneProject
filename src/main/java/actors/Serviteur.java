@@ -20,6 +20,9 @@ public abstract class Serviteur extends Carte implements Cloneable{
     protected LinkedList<Effet> effetsDie;
 
     protected Serviteur(){
+        if(this.effetsDie == null){
+            this.effetsDie = new LinkedList<>();
+        }
 
     }
 
@@ -41,10 +44,7 @@ public abstract class Serviteur extends Carte implements Cloneable{
     public void die(){
 
         Tools.log("Le Serviteur: " + getNom() + " meurt !", LogType.WARNING);
-
-        for(Effet effetDie: effetsDie){
-            effetDie.action();
-        }
+        //executeEffetsDie(); TODO
     }
 
     public int getDegats() {

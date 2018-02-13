@@ -115,8 +115,8 @@ public class Tools {
 
         TypeClasse classe = TypeClasse.NEUTRE;
         StringBuilder msg = new StringBuilder("Choisir la classe du " + player + "\n");
-        msg.append("(M) Mage, Effet: Inflige un point de dégâts à un adversaire (Serviteur ou Heros)");
-        msg.append("(P) Paladin, Effet: Invoque un serviteur 'Recrue de la main d'argent' 1:1");
+        msg.append("(M) Mage, Effet: Inflige un point de dégâts à un adversaire (Serviteur ou Heros)\n");
+        msg.append("(P) Paladin, Effet: Invoque un serviteur 'Recrue de la main d'argent' 1:1\n");
         msg.append("(G) Guerrier, Effet: Confère 2 points d'armure au Heros");
 
         String str = readInput(msg.toString());
@@ -361,7 +361,7 @@ public class Tools {
                 break;
         }
 
-        System.out.println(prefixe + msg);
+        System.out.println(prefixe + msg );
 
     }
 

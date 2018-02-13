@@ -101,7 +101,7 @@ public class Effet {
 
     private void actionInvocation(Player cible){
         for(Serviteur serviteur: this.listeInvocation){
-            Jeu.getPlateau().addCarte(cible, serviteur);
+            Jeu.getPlateau().poseCarte(cible, serviteur);
         }
     }
 

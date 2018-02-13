@@ -358,21 +358,28 @@ public class Plateau {
 
 
     public void purge() {
+
+        ArrayList<Serviteur> toRemoveJ1 = new ArrayList<>();
+        ArrayList<Serviteur> toRemoveJ2 = new ArrayList<>();
+
         //purge J1
-        for (int i = 0; i < serviteursJ1.size(); i++) {
-            if (serviteursJ1.get(i).isDead()) {
-                serviteursJ1.remove(i);
-                serviteursJ1.get(i).die();
+        for(Serviteur serviteur: serviteursJ1){
+            if(serviteur.isDead()){
+                serviteur.die();
+                toRemoveJ1.add(serviteur);
             }
         }
 
         //purge J2
-        for (int i = 0; i < serviteursJ2.size(); i++) {
-            if (serviteursJ2.get(i).isDead()) {
-                serviteursJ2.remove(i);
-                serviteursJ1.get(i).die();
+        for(Serviteur serviteur: serviteursJ2){
+            if(serviteur.isDead()){
+                serviteur.die();
+                toRemoveJ2.add(serviteur);
             }
         }
+
+        this.serviteursJ1.removeAll(toRemoveJ1);
+        this.serviteursJ2.removeAll(toRemoveJ2);
 
     }
 

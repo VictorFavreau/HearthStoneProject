@@ -21,7 +21,7 @@ public class Jeu {
 
         //initialisation du joueur 1
         TypeClasse classeJoueur1 = Tools.getClasse(Player.JOUEUR1);
-        joueur1 = new Joueur(classeJoueur1);
+        joueur1 = new Joueur(classeJoueur1, Player.JOUEUR1);
         //TODO SET DECK
         switch(classeJoueur1){
             case MAGE:
@@ -36,7 +36,7 @@ public class Jeu {
 
         //initialisation du joueur 2
         TypeClasse classeJoueur2 = Tools.getClasse(Player.JOUEUR2);
-        joueur2 = new Joueur(classeJoueur1);
+        joueur2 = new Joueur(classeJoueur1, Player.JOUEUR2);
         //TODO SET DECK
         switch(classeJoueur2){
             case MAGE:
