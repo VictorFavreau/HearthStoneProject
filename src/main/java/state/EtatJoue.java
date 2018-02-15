@@ -1,19 +1,14 @@
 package state;
 
+import jeu.Jeu;
+
 public class EtatJoue extends Etat {
     public EtatJoue(Tour tour) {
         super(tour);
     }
 
-    public void poserCarte() {
-        this.tour.getJoueur().pioche();
-    }
-
-    public void attaquer(){
-
-    }
-
-    public void passer(){
-
+    public void jouer(){
+        Jeu.init();
+        this.tour.attenteAction();
     }
 }

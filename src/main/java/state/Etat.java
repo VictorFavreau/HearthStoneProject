@@ -6,23 +6,12 @@ public abstract class Etat {
 
     public Etat(Tour tour){ this.tour=tour; }
 
-    public void joue() {
-
-    }
-
-    public void passe() {
-
-    }
-
-    public void poserCarte() {
-
-    }
-
-    public void attaquer() {
-
-    }
-
-    public void attaqueAdverse() {
-
-    }
+    public void jouer() {}
+    public void attenteAction() {}
+    public void finirTour() {}
+    public void passe() {}
+    public void poserCarte() {}
+    public void attaquer() {}
+    public void arreterJeu() {}
+    public void afficherAide() {}
 }
