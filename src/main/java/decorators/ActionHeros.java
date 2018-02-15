@@ -2,6 +2,8 @@ package decorators;
 
 import actors.Heros;
 import actors.TypeActeur;
+import actors.TypeClasse;
+import actors.heros.HerosGuerrier;
 import actors.sorts.effet.Effet;
 
 public abstract class ActionHeros extends Heros{
@@ -10,6 +12,7 @@ public abstract class ActionHeros extends Heros{
 
     protected ActionHeros(){
         super();
+
     }
 
     @Override
@@ -43,7 +46,7 @@ public abstract class ActionHeros extends Heros{
     }
 
     public void setHeros(Heros heros){
-        this.heros = heros;
+        this.heros = (Heros) heros.clone();
     }
 
 }

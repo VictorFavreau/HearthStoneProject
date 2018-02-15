@@ -1,6 +1,8 @@
 package state;
 
 import jeu.Jeu;
+import utils.LogType;
+import utils.Tools;
 
 public class EtatMain extends Etat{
     public EtatMain(Tour tour) {
@@ -8,7 +10,7 @@ public class EtatMain extends Etat{
     }
 
     public void afficheMain(){
-        Jeu.getJoueurActuel().afficheMain();
+        Tools.log(Jeu.getJoueurActuel().afficheMain(), Tools.getLogPlayer(Jeu.getPlayerActuel()));
         this.tour.attenteAction();
     }
 }

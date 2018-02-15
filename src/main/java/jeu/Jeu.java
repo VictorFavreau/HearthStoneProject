@@ -129,9 +129,11 @@ public class Jeu implements ObserverJeu{
         switch(playerActuel){
             case JOUEUR1:
                 joueur = joueur1;
+                break;
 
             case JOUEUR2:
                 joueur = joueur2;
+                break;
         }
 
         return joueur;

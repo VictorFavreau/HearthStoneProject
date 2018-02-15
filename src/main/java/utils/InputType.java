@@ -11,4 +11,7 @@ public enum InputType {
     ATTAQUER,
     POSER,
     FIN_TOUR,
+    MAIN,
+    STAT,
+    EFFET
 }

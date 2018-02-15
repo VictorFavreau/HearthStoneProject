@@ -45,7 +45,7 @@ public class Tools {
 
         InputType inputType = InputType.INVALIDE;
         StringBuilder message = new StringBuilder("Que souhaitez vous faire ?\n");
-        message.append("(P) POSER CARTE, (A) ATTAQUER, (F) PASSER TOUR, (Q) QUITTER");
+        message.append("(P) POSER CARTE, (A) ATTAQUER, (E) EFFET HEROS, (F) PASSER TOUR, (M) MAIN, (S) STAT PARTIE, (Q) QUITTER");
 
 
 
@@ -71,7 +71,17 @@ public class Tools {
                     inputType = InputType.FIN_TOUR;
                     break;
 
+                case "M":
+                    inputType = inputType.MAIN;
+                    break;
 
+                case "S":
+                    inputType = inputType.STAT;
+                    break;
+
+                case "E":
+                    inputType = inputType.EFFET;
+                    break;
 
                 default:
                     log("Bien tenté, mais il m'est impossible d'effectuer l'action "+ str.toUpperCase() + " désolé... Recommencez !", LogType.WARNING);

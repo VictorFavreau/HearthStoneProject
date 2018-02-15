@@ -84,9 +84,9 @@ public class Joueur {
     /**
      * Incrémente la quantité de mana possédée par le héros de 1
      */
-    public void addMana() {
+    public void addMana(int mana) {
         if (this.heros.getMana() < this.heros.getStockMana()) {
-            ActionHeros actionHeros = new ActionHerosAddMana(1);
+            ActionHeros actionHeros = new ActionHerosAddMana(mana);
             actionHeros.setHeros(this.heros);
             this.heros = actionHeros;
         }
@@ -96,8 +96,8 @@ public class Joueur {
      * Redonne au heros tout ses points de mana
      */
     public void setMaxMana() {
-        while (this.heros.getMana() < this.heros.getStockMana()) {
-            addMana();
+        if(heros.getStockMana() - heros.getMana() > 0){
+            addMana(heros.getStockMana()-heros.getMana());
         }
     }
 

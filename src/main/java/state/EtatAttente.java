@@ -27,6 +27,19 @@ public class EtatAttente extends Etat {
                 case ATTAQUER:
                     this.tour.attaquer();
                     break;
+
+                case MAIN:
+                    this.tour.afficherMain();
+                    break;
+
+                case STAT:
+                    this.tour.afficherStats();
+                    break;
+
+                case EFFET:
+                    this.tour.utiliserEffet();
+                    break;
+
                 default:
                     this.attenteAction();
             }

@@ -56,7 +56,7 @@ public abstract class ActionServiteur extends Serviteur {
     public LinkedList<Effet> getEffets(){ return serviteur.getEffets(); }
 
     public void setServiteur(Serviteur serviteur){
-        this.serviteur = serviteur;
+        this.serviteur = (Serviteur) serviteur.clone();
     }
 
 

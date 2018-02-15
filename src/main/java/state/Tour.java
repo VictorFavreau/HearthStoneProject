@@ -17,6 +17,7 @@ public class Tour implements InterfaceTour {
     private EtatFinTour etatFinTour;
     private EtatMain etatMain;
     private EtatStats etatStats;
+    private EtatEffet etatEffet;
     private boolean finJeu;
 
     public Tour(){
@@ -32,6 +33,7 @@ public class Tour implements InterfaceTour {
         this.etatFinTour = new EtatFinTour(this);
         this.etatMain = new EtatMain(this);
         this.etatStats = new EtatStats(this);
+        this.etatEffet = new EtatEffet(this);
     }
 
     @Override
@@ -85,6 +87,12 @@ public class Tour implements InterfaceTour {
     public void afficherStats() {
         this.etatCourant = etatStats;
         this.etatCourant.afficheStats();
+    }
+
+    @Override
+    public void utiliserEffet() {
+        this.etatCourant = etatEffet;
+        this.etatCourant.appliquerEffet();
     }
 
     @Override

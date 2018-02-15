@@ -51,4 +51,6 @@ public abstract class Heros extends Acteur {
     public TypeActeur getTypeCibleEffet() {
         return typeCibleEffet;
     }
+
+
 }

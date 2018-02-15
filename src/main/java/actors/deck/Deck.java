@@ -34,7 +34,7 @@ public abstract class Deck {
         Random randomGenerator = new Random();
         int randomIndice = randomGenerator.nextInt(cartesDeck.size());
 
-        return cartesDeck.get(randomIndice).clone();
+        return (Carte) cartesDeck.get(randomIndice).clone();
     }
 
 }

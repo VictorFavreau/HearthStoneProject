@@ -9,7 +9,7 @@ import utils.Tools;
 
 import java.util.LinkedList;
 
-public abstract class Carte extends Acteur implements Cloneable{
+public abstract class Carte extends Acteur {
 
     protected Player createur;
     protected String nom;
@@ -80,17 +80,7 @@ public abstract class Carte extends Acteur implements Cloneable{
         }
     }
 
-    public Carte clone(){
-        Object o = null;
 
-        try{
-            o = super.clone();
-        } catch(CloneNotSupportedException cnse){
-            cnse.printStackTrace();
-        }
-
-        return (Carte) o;
-    }
 
 
 }

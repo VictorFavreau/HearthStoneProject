@@ -11,6 +11,7 @@ public abstract class Etat {
     public void finirTour() {}
     public void passe() {}
     public void poserCarte() {}
+    public void appliquerEffet(){}
     public void attaquer() {}
     public void arreterJeu() {}
     public void afficherAide() {}
