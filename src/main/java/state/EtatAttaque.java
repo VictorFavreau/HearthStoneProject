@@ -9,8 +9,7 @@ public class EtatAttaque extends Etat{
     }
 
     public void attaquer(){
-        //ATTAQUER AVERSSAIRE
-        //Jeu.getJoueurActuel().attaquer();
+        Jeu.getJoueurActuel().attaque();
         this.tour.attenteAction();
     }
 }

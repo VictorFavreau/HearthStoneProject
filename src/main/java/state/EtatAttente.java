@@ -31,8 +31,7 @@ public class EtatAttente extends Etat {
                     this.attenteAction();
             }
         } else {
-            //Un joueur est mort on arrête donc la partie et on affiche le message de fin du jeu
-
+            this.tour.finJeu();
         }
     }
 }

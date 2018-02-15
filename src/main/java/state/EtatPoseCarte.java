@@ -9,8 +9,7 @@ public class EtatPoseCarte extends Etat{
     }
 
     public void poserCarte(){
-        //Appel méthode pose carte
-        //Jeu.getJoueurActuel().poseCarte();
+        Jeu.getJoueurActuel().poseCarte();
         this.tour.attenteAction();
     }
 }
