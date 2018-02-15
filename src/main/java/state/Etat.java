@@ -15,4 +15,6 @@ public abstract class Etat {
     public void arreterJeu() {}
     public void afficherAide() {}
     public void finPartie() {}
+    public void afficheStats() {}
+    public void afficheMain() {}
 }

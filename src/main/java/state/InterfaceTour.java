@@ -10,6 +10,8 @@ public interface InterfaceTour {
     public void attaquer();
     public void quitterJeu();
     public void afficherAide();
+    public void afficherMain();
+    public void afficherStats();
     public void finJeu();
     public void enregistrerObs(ObserverJeu obs);
     public void supprimerObs(ObserverJeu obs);
