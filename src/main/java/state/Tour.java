@@ -10,7 +10,7 @@ public class Tour implements InterfaceTour {
     private ArrayList<ObserverJeu> obs;
     private EtatHelp etatHelp;
     private EtatQuitter etatQuitter;
-    private EtatAttaque etatAttaq;
+    private EtatAttaque etatAttaque;
     private EtatAttente etatAttente;
     private EtatMort etatMort;
     private EtatPoseCarte etatPoseCarte;
@@ -22,7 +22,7 @@ public class Tour implements InterfaceTour {
         this.obs = new ArrayList<ObserverJeu>();
         this.finJeu = false;
         this.etatHelp = new EtatHelp(this);
-        this.etatAttaq = new EtatAttaque(this);
+        this.etatAttaque = new EtatAttaque(this);
         this.etatMort = new EtatMort(this);
         this.etatAttente = new EtatAttente(this);
         this.etatPoseCarte = new EtatPoseCarte(this);
@@ -49,26 +49,32 @@ public class Tour implements InterfaceTour {
 
     @Override
     public void poserCarte() {
-        this.etatCourant = new EtatPoseCarte(this);
+        this.etatCourant = etatPoseCarte;
         this.etatCourant.poserCarte();
     }
 
     @Override
     public void attaquer() {
-        this.etatCourant = new EtatAttaque(this);
+        this.etatCourant = etatAttaque;
         this.etatCourant.attaquer();
     }
 
     @Override
     public void quitterJeu() {
-        this.etatCourant = new EtatQuitter(this);
+        this.etatCourant = etatQuitter;
         this.etatCourant.arreterJeu();
     }
 
     @Override
     public void afficherAide() {
-        this.etatCourant = new EtatHelp(this);
+        this.etatCourant = etatHelp;
         this.etatCourant.afficherAide();
+    }
+
+    @Override
+    public void finJeu() {
+        this.etatCourant = etatMort;
+        this.etatCourant.finPartie();
     }
 
     @Override
