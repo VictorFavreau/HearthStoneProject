@@ -17,5 +17,6 @@ public class ChampionFriselame extends Serviteur {
         this.sleeping = false;
         this.provocation = false;
         this.volVie = true;
+        this.charge = true;
     }
 }

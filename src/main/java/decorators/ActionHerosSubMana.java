@@ -6,7 +6,7 @@ public class ActionHerosSubMana extends ActionHeros{
 
     int mana;
 
-    public ActionHerosSubMana(Heros heros, int mana){
+    public ActionHerosSubMana(int mana){
         super();
         this.heros = heros;
         this.mana = mana;
@@ -14,6 +14,6 @@ public class ActionHerosSubMana extends ActionHeros{
 
     @Override
     public int getMana() {
-        return heros.getMana() + mana;
+        return heros.getMana() - mana;
     }
 }

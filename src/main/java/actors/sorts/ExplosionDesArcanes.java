@@ -21,7 +21,7 @@ public class ExplosionDesArcanes extends Sort {
 
         //initialisation des effetsCarte
         Effet effet = new Effet(TypeEffet.PLATEAU, Tools.getAdversaire(createur), "Inflige 1 point de dégats à tous les serviteurs adverses");
-        effet.setActionServiteur(new ActionServiteurSubVie(null, 1));
+        effet.setActionServiteur(new ActionServiteurSubVie(1));
         this.effetsCarte.add(effet);
     }
 

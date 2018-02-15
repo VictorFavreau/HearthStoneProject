@@ -9,7 +9,7 @@ import utils.Tools;
 
 import java.util.LinkedList;
 
-public abstract class Carte extends Acteur{
+public abstract class Carte extends Acteur implements Cloneable{
 
     protected Player createur;
     protected String nom;
@@ -26,10 +26,10 @@ public abstract class Carte extends Acteur{
         this.createur = createur;
         this.effetsCarte = new LinkedList<>();
 
-        this.init();
+
     }
 
-    private void init(){
+    public void init(){
         for(Effet effet: effetsCarte){
             effet.action();
         }
@@ -60,7 +60,7 @@ public abstract class Carte extends Acteur{
     public void executeEffets(){
         for(Effet effet: effetsCarte) {
             Tools.log("Activation de l'effet:\n" + effet.getDescr(), LogType.INFO);
-
+/*
             switch(effet.getTypeEffet()){
                 case SERVITEUR:
                     Serviteur serviteur = Tools.readServiteur(effet.getCible());
@@ -73,11 +73,23 @@ public abstract class Carte extends Acteur{
 
                 case PIOCHE:
                     break;
-            }
+            }*/
 
             effet.action();
 
         }
+    }
+
+    public Carte clone(){
+        Object o = null;
+
+        try{
+            o = super.clone();
+        } catch(CloneNotSupportedException cnse){
+            cnse.printStackTrace();
+        }
+
+        return (Carte) o;
     }
 
 

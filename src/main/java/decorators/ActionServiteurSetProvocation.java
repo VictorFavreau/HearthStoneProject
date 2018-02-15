@@ -6,11 +6,8 @@ public class ActionServiteurSetProvocation extends ActionServiteur{
 
     private boolean provocation;
 
-    public ActionServiteurSetProvocation(Serviteur serviteur, boolean provocation){
+    public ActionServiteurSetProvocation(boolean provocation){
         super();
-        this.serviteur = serviteur;
-
-
         this.provocation = provocation;
     }
 

@@ -19,12 +19,12 @@ public class HerosGuerrier extends Heros {
         this.typeHeros = TypeClasse.MAGE;
         this.defense = 0;
         this.stockMana = 0;
-
+        this.descr = "Confère 2 points d'armure au Heros";
         this.typeCibleEffet = TypeActeur.HEROS;
 
         //initialisation Effet
         Effet effet = new Effet(TypeEffet.HEROS, joueur, "Confère 2 points d'armure au Heros");
-        effet.setActionHeros(new ActionHerosAddDefense(null, 2));
+        effet.setActionHeros(new ActionHerosAddDefense(2));
         this.effetHeros = effet;
 
 

@@ -10,13 +10,14 @@ import java.util.LinkedList;
 /**
  * author: Anais BESSON & Victor FAVREAU
  */
-public abstract class Serviteur extends Carte implements Cloneable{
+public abstract class Serviteur extends Carte{
 
 
     protected int degats;
     protected boolean sleeping;
     protected boolean provocation;
     protected boolean volVie;
+    protected boolean charge;
     protected LinkedList<Effet> effetsDie;
 
     protected Serviteur(){
@@ -44,7 +45,7 @@ public abstract class Serviteur extends Carte implements Cloneable{
     public void die(){
 
         Tools.log("Le Serviteur: " + getNom() + " meurt !", LogType.WARNING);
-        //executeEffetsDie(); TODO
+        executeEffetsDie();
     }
 
     public int getDegats() {
@@ -63,32 +64,29 @@ public abstract class Serviteur extends Carte implements Cloneable{
         return volVie;
     }
 
-    public Object clone(){
-        Object o = null;
+    public boolean isCharge() { return charge; }
 
-        try{
-            o = super.clone();
-        } catch(CloneNotSupportedException cnse){
-            cnse.printStackTrace();
-        }
-
-        return o;
-    }
 
     @Override
     public String toString() {
 
         StringBuilder toStringBuilder = new StringBuilder("");
 
-        toStringBuilder.append(getNom() + " ");
+        toStringBuilder.append(getNom());
+        toStringBuilder.append(" Mana:" + getMana() + " ");
         toStringBuilder.append(getDegats() + ":" + getVie() + " ");
 
-        if(sleeping) toStringBuilder.append("sleeping ");
-        if(sleeping) toStringBuilder.append("provocation ");
-        if(sleeping) toStringBuilder.append("volvie ");
+        if(isSleeping()) toStringBuilder.append("sleeping ");
+        if(isProvocation()) toStringBuilder.append("provocation ");
+        if(isVolVie()) toStringBuilder.append("volvie ");
+        if(isCharge()) toStringBuilder.append("charge ");
+
+        String effet = getDescription();
+
+        if(!getDescription().equals("")) toStringBuilder.append(" effet: " + getDescription());
+
+
 
         return toStringBuilder.toString();
-
-
     }
 }

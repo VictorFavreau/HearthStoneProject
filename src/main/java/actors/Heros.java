@@ -12,6 +12,7 @@ public abstract class Heros extends Acteur {
     protected Effet effetHeros;
     protected Effet effetServiteur;
     protected TypeActeur typeCibleEffet;
+    protected String descr;
 
     public Heros() {
         this.typeActeur = TypeActeur.HEROS;
@@ -36,6 +37,8 @@ public abstract class Heros extends Acteur {
     public int getMana() {
         return mana;
     }
+
+    public String getDescr(){ return descr; };
 
     public Effet getEffetHeros() {
         return effetHeros;

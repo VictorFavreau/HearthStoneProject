@@ -20,12 +20,12 @@ public class HerosPaladin extends Heros {
         this.typeHeros = TypeClasse.PALADIN;
         this.defense = 0;
         this.stockMana = 0;
-
+        this.descr = "Invoque un serviteur 'Recrue de la main d'argent' 1:1";
         this.typeCibleEffet = TypeActeur.SERVITEUR;
 
         //initialisation Effet
         Effet effet = new Effet(TypeEffet.INVOCATION, joueur, "Invoque un serviteur 'Recrue de la main d'argent' 1:1");
-        effet.addInvocation(new CustomServiteur(joueur, 1, 1, true, false, false, new LinkedList<Effet>()));
+        effet.addInvocation(new CustomServiteur(joueur, 1, 1, true, false, false, false, new LinkedList<Effet>()));
         this.effetServiteur = effet;
 
     }

@@ -6,9 +6,8 @@ public class ActionHerosSubDefense extends ActionHeros{
 
     private int defense;
 
-    public ActionHerosSubDefense(Heros heros, int defense){
+    public ActionHerosSubDefense(int defense){
         super();
-        this.heros = heros;
         this.defense = defense;
     }
 

@@ -17,5 +17,6 @@ public class AvocatCommisOffice extends Serviteur {
         this.sleeping = true;
         this.provocation = true;
         this.volVie = false;
+        this.charge = false;
     }
 }

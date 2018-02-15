@@ -1,3 +1,5 @@
+import actors.deck.Deck;
+import actors.deck.DeckMage;
 import actors.serviteurs.SanglierBrocheroc;
 import actors.Serviteur;
 import decorators.ActionServiteurAddVie;
@@ -13,38 +15,52 @@ import utils.Tools;
  */
 public class Main {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         //Welcome to the HearthStone project
         Tools.printHearthStone();
 
-        //TOOLS DEMO
-        /*
-        String str = Tools.readInput("Saisir qq chose: ");
-        Tools.log(str, LogType.INFO);
-
-        InputType inputType = Tools.getInputType("Saisir une action");
-        Tools.log(inputType.toString(), LogType.INFO);
-        Tools.log(inputType.toString(), LogType.WARNING);
-        Tools.log(inputType.toString(), LogType.JOUEUR1);
-        Tools.log(inputType.toString(), LogType.JOUEUR2);
-        */
-        //TOOLS DEMO END
-
-        //DECORATOR DEMO
 
         Jeu jeu = new Jeu();
 
-      /*  Serviteur serviteur = new SanglierBrocheroc(Player.JOUEUR1);
-        Tools.log((serviteur.getNom() + " - degats: " + serviteur.getDegats() + " - vie: " + serviteur.getVie()), LogType.INFO);
+        jeu.joue();
 
-        serviteur = new ActionServiteurAddDegats(serviteur, 9);
-        serviteur = new ActionServiteurAddVie(serviteur, 5);
 
-        Tools.log((serviteur.getNom() + " - degats: " + serviteur.getDegats() + " - vie: " + serviteur.getVie()), LogType.INFO);
-        //DECORATOR DEMO END
+        Jeu.afficheStat();
 
-*/
+        for(int i=0; i<= 10; i++){
+            Jeu.getJoueur1().pioche();
+            Jeu.getJoueur1().addStockMana();
 
+            Jeu.getJoueur2().pioche();
+            Jeu.getJoueur2().addStockMana();
+
+        }
+
+        Jeu.getJoueur1().setMaxMana();
+        Jeu.getJoueur2().setMaxMana();
+
+        Jeu.afficheStat();
+
+
+
+
+
+        for(int i=0; i< 3; i++){
+            Jeu.getJoueur1().poseCarte();
+            Jeu.getJoueur2().poseCarte();
+
+            //Jeu.getJoueur1().attaque();
+            Jeu.getJoueur1().actionSpeciale();
+
+            Jeu.afficheStat();
+            Jeu.getJoueur1().wakeUpServiteurs();
+        }
+
+
+        Jeu.afficheStat();
+
+
+/*
         Player player = Tools.readPlayer();
         System.out.println(player.toString());
 
@@ -66,7 +82,8 @@ public class Main {
         Jeu.getPlateau().actionOnCards(player, new ActionServiteurSubVie(null,6));
         Tools.log(Jeu.getPlateau().afficheCartesJ1(), LogType.NORMAL);
 
+
+*/
+
     }
-
-
 }

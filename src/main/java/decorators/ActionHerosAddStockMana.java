@@ -6,9 +6,8 @@ public class ActionHerosAddStockMana extends ActionHeros {
 
     private int stockMana;
 
-    public ActionHerosAddStockMana(Heros heros, int stockMana){
+    public ActionHerosAddStockMana(int stockMana){
         super();
-        this.heros = heros;
         this.stockMana = stockMana;
     }
 

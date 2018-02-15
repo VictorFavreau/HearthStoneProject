@@ -4,7 +4,9 @@ import actors.Serviteur;
 import decorators.ActionHeros;
 import decorators.ActionServiteur;
 import jeu.Jeu;
+import utils.LogType;
 import utils.Player;
+import utils.Tools;
 
 import java.util.LinkedList;
 
@@ -74,8 +76,14 @@ public class Effet {
 
     private void actionServiteur(Player cible){
 
-        Jeu.getPlateau().actionOnCard(cible, serviteur, actionServiteur);
+        if(Jeu.getPlateau().isCartesPlateauJoueur(cible)){
 
+            this.serviteur = Tools.readServiteur(cible);
+
+            Jeu.getPlateau().actionOnCard(cible, serviteur, actionServiteur);
+        } else {
+            Tools.log("Il n'y a pas de Serviteurs présents sur le plateau du joueur. L'effet échoue !", LogType.WARNING);
+        }
     }
 
     private void actionPlateau(Player cible){

@@ -4,12 +4,12 @@ import actors.Serviteur;
 import actors.TypeClasse;
 import utils.Player;
 
-public class YetiNoir extends Serviteur {
+public class YetiNoroit extends Serviteur {
 
-    public YetiNoir(Player createur){
+    public YetiNoroit(Player createur){
         super(createur);
         this.typeCarte = TypeClasse.NEUTRE;
-        this.nom = "Yéti Noir";
+        this.nom = "Yéti Noroit";
         this.description = "";
         this.mana = 4;
         this.degats = 4;
@@ -17,5 +17,6 @@ public class YetiNoir extends Serviteur {
         this.sleeping = true;
         this.provocation = false;
         this.volVie = false;
+        this.charge = false;
     }
 }

@@ -22,8 +22,8 @@ public class ImageMirroir extends Sort {
 
         //initialisation des effetsCarte
         Effet effet = new Effet(TypeEffet.INVOCATION, createur, "Invoque 2 serviteurs 0:2 avec provocation");
-        effet.addInvocation(new CustomServiteur(createur, 0, 2, true, true, false, new LinkedList<Effet>()));
-        effet.addInvocation(new CustomServiteur(createur, 0, 2, true, true, false, new LinkedList<Effet>()));
+        effet.addInvocation(new CustomServiteur(createur, 0, 2, true, true, false, false, new LinkedList<Effet>()));
+        effet.addInvocation(new CustomServiteur(createur, 0, 2, true, true, false, false, new LinkedList<Effet>()));
         this.effetsCarte.add(effet);
 
     }

@@ -28,7 +28,7 @@ public class ActionServiteurTransform extends ActionServiteur {
         this.provocation = provocation;
         this.volVie = volVie;
 
-        this.listeEffets = new LinkedList<Effet>();
+        this.effetsCarte = new LinkedList<Effet>();
         this.effetsCarte.addAll(listeEffets);
     }
 

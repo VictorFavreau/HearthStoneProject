@@ -2,6 +2,7 @@ package jeu;
 
 import actors.Heros;
 import actors.TypeClasse;
+import utils.LogType;
 import utils.Player;
 import utils.Tools;
 
@@ -13,41 +14,22 @@ public class Jeu {
     private static Player playerActuel;
 
     public Jeu(){
-        init();
+
     }
 
-    public void init(){
+    /**
+     * Initialise une nouvelle partie
+     */
+    public void joue(){
         plateau = new Plateau();
 
         //initialisation du joueur 1
         TypeClasse classeJoueur1 = Tools.getClasse(Player.JOUEUR1);
         joueur1 = new Joueur(classeJoueur1, Player.JOUEUR1);
-        //TODO SET DECK
-        switch(classeJoueur1){
-            case MAGE:
-                break;
-
-            case PALADIN:
-                break;
-            case GUERRIER:
-                break;
-        }
-
 
         //initialisation du joueur 2
         TypeClasse classeJoueur2 = Tools.getClasse(Player.JOUEUR2);
-        joueur2 = new Joueur(classeJoueur1, Player.JOUEUR2);
-        //TODO SET DECK
-        switch(classeJoueur2){
-            case MAGE:
-                break;
-
-            case PALADIN:
-                break;
-            case GUERRIER:
-                break;
-        }
-
+        joueur2 = new Joueur(classeJoueur2, Player.JOUEUR2);
     }
 
     public static Plateau getPlateau() {
@@ -62,6 +44,9 @@ public class Jeu {
         return joueur2;
     }
 
+    /**
+     * Change de joueur actif
+     */
     public void changeJoueur(){
         switch(playerActuel){
             case JOUEUR1:
@@ -75,23 +60,18 @@ public class Jeu {
         }
     }
 
+    /**
+     * Retourne le libelle du joueur actif
+     * @return libelle du joueur actif
+     */
     public static Player getPlayerActuel(){
         return playerActuel;
     }
 
-    /*
-    public static Heros getHerosPlayer(Player player){
-        switch(player){
-            case JOUEUR1:
-                return joueur1.;
-
-            case JOUEUR2:
-                return serviteursJ2.size() > 0;
-        }
-
-        return null;
-    }*/
-
+    /**
+     * Retourne le joueur actuellement actif
+     * @return joueur actif
+     */
     public static Joueur getJoueurActuel() {
 
         Joueur joueur = null;
@@ -105,5 +85,15 @@ public class Jeu {
         }
 
         return joueur;
+    }
+
+    /**
+     * Affiche les stats de la partie
+     */
+    public static void afficheStat(){
+        Tools.log(getJoueur1().toString(), LogType.JOUEUR1);
+        getPlateau().affichePlateauJoueur(Player.JOUEUR1);
+        Tools.log(getJoueur2().toString(), LogType.JOUEUR2);
+        getPlateau().affichePlateauJoueur(Player.JOUEUR2);
     }
 }

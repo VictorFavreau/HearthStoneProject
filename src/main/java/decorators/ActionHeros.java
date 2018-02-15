@@ -1,6 +1,8 @@
 package decorators;
 
 import actors.Heros;
+import actors.TypeActeur;
+import actors.sorts.effet.Effet;
 
 public abstract class ActionHeros extends Heros{
 
@@ -21,6 +23,24 @@ public abstract class ActionHeros extends Heros{
 
     @Override
     public int getMana(){ return heros.getMana(); }
+
+    @Override
+    public String getDescr(){ return heros.getDescr(); }
+
+    @Override
+    public TypeActeur getTypeCibleEffet() {
+        return heros.getTypeCibleEffet();
+    }
+
+    @Override
+    public Effet getEffetHeros() {
+        return heros.getEffetHeros();
+    }
+
+    @Override
+    public Effet getEffetServiteur() {
+        return heros.getEffetServiteur();
+    }
 
     public void setHeros(Heros heros){
         this.heros = heros;

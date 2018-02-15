@@ -48,6 +48,11 @@ public abstract class ActionServiteur extends Serviteur {
     public boolean isVolVie(){ return serviteur.isVolVie(); }
 
     @Override
+    public boolean isCharge() {
+        return serviteur.isCharge();
+    }
+
+    @Override
     public LinkedList<Effet> getEffets(){ return serviteur.getEffets(); }
 
     public void setServiteur(Serviteur serviteur){

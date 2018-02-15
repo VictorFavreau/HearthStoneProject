@@ -6,9 +6,8 @@ public class ActionHerosSubVie extends ActionHeros {
 
     private int vie;
 
-    public ActionHerosSubVie(Heros heros, int vie){
+    public ActionHerosSubVie(int vie){
         super();
-        this.heros = heros;
         this.vie = vie;
     }
 

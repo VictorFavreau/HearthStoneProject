@@ -6,9 +6,8 @@ public class ActionServiteurSetVolVie extends ActionServiteur{
 
     private boolean volVie;
 
-    public ActionServiteurSetVolVie(Serviteur serviteur, boolean volVie){
+    public ActionServiteurSetVolVie(boolean volVie){
         super();
-        this.serviteur = serviteur;
         this.volVie = volVie;
     }
 

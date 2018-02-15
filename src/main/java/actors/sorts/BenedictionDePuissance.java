@@ -20,7 +20,8 @@ public class BenedictionDePuissance extends Sort {
 
         //initialisation des effetsCarte
         Effet effet = new Effet(TypeEffet.SERVITEUR, createur, "+3 d'attaque à un serviteur");
-        effet.setActionServiteur(new ActionServiteurAddDegats(null, 3));
+        
+        effet.setActionServiteur(new ActionServiteurAddDegats(3));
         this.effetsCarte.add(effet);
 
     }

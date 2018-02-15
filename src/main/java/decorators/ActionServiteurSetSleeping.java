@@ -6,9 +6,8 @@ public class ActionServiteurSetSleeping extends ActionServiteur {
 
     private boolean sleeping;
 
-    public ActionServiteurSetSleeping(Serviteur serviteur, boolean sleeping){
+    public ActionServiteurSetSleeping(boolean sleeping){
         super();
-        this.serviteur = serviteur;
         this.sleeping = sleeping;
     }
 

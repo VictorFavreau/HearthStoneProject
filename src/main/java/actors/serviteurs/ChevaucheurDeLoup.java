@@ -17,5 +17,6 @@ public class ChevaucheurDeLoup  extends Serviteur {
         this.sleeping = false;
         this.provocation = false;
         this.volVie = false;
+        this.charge = true;
     }
 }

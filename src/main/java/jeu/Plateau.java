@@ -96,7 +96,11 @@ public class Plateau {
         return serviteurs;
     }
 
-
+    /**
+     * Effectue une action sur tous les serviteurs du Plateau d'un Joueur
+     * @param player joueur concerné
+     * @param action action à effectuer
+     */
     public void actionOnCards(Player player, ActionServiteur action) {
         switch (player) {
             case JOUEUR1:
@@ -119,6 +123,12 @@ public class Plateau {
         purge();
     }
 
+    /**
+     * Effectue une action sur tous les serviteurs du plateau du joueur
+     * @param serviteurs liste des serviteurs du joueur
+     * @param action action à effectuer
+     * @return liste mise à jour
+     */
     private ArrayList<Serviteur> executeActions(ArrayList<Serviteur> serviteurs, ActionServiteur action) {
 
         for (int indice = 0; indice < serviteurs.size(); indice++) {
@@ -131,6 +141,10 @@ public class Plateau {
         return serviteurs;
     }
 
+    /**
+     * Le joueur effectue une attaque
+     * @param joueurAttaquant joueur attaquant
+     */
     public void attaque(Player joueurAttaquant) {
 
         Player adversaire = Tools.getAdversaire(joueurAttaquant);
@@ -154,19 +168,23 @@ public class Plateau {
                         if(cible.isProvocation() || !isServiteurProvoquant(adversaire)){
 
                             //Le serviteur attaque la cible
-                            Jeu.getPlateau().actionOnCard(adversaire,cible, new ActionServiteurSubVie(null, attaquant.getDegats()));
+                            actionOnCard(adversaire,cible, new ActionServiteurSubVie(attaquant.getDegats()));
 
                             //L'attaquant prend des dégats
-                            Jeu.getPlateau().actionOnCard(joueurAttaquant,attaquant, new ActionServiteurSubVie(null, cible.getDegats()));
+                            actionOnCard(joueurAttaquant,attaquant, new ActionServiteurSubVie(cible.getDegats()));
 
                             if(attaquant.isVolVie()){
+
+                                ActionHeros actionHeros = new ActionHerosAddVie(attaquant.getDegats());
                                 switch (joueurAttaquant){
                                     case JOUEUR1:
-                                        Jeu.getJoueur1().actionOnHero(new ActionHerosAddVie(null, attaquant.getDegats()));
+                                        actionHeros.setHeros(Jeu.getJoueur1().getHeros());
+                                        Jeu.getJoueur1().actionOnHero(actionHeros);
                                         break;
 
                                     case JOUEUR2:
-                                        Jeu.getJoueur2().actionOnHero(new ActionHerosAddVie(null, attaquant.getDegats()));
+                                        actionHeros.setHeros(Jeu.getJoueur2().getHeros());
+                                        Jeu.getJoueur2().actionOnHero(actionHeros);
                                         break;
                                 }
                             }
@@ -193,12 +211,14 @@ public class Plateau {
                                 }
 
                                 if(subDefense > 0){
-                                    Jeu.getJoueur1().actionOnHero(new ActionHerosSubDefense(null, subDefense));
+                                    Jeu.getJoueur1().actionOnHero(new ActionHerosSubDefense(subDefense));
                                 }
 
                                 if(subVie > 0){
-                                    Jeu.getJoueur1().actionOnHero(new ActionHerosSubVie(null, subVie));
+                                    Jeu.getJoueur1().actionOnHero(new ActionHerosSubVie(subVie));
                                 }
+
+                                Tools.log("Le " + adversaire + " perd " + subDefense + "def et " + subVie + "pv", LogType.WARNING);
 
                             } else {
                                 Tools.log("Un serviteur avec l'effet Provocation gène votre attaque. Elle échoue (dignement bien ententu !).", Tools.getLogPlayer(joueurAttaquant));
@@ -218,12 +238,14 @@ public class Plateau {
                                 }
 
                                 if(subDefense > 0){
-                                    Jeu.getJoueur2().actionOnHero(new ActionHerosSubDefense(null, subDefense));
+                                    Jeu.getJoueur2().actionOnHero(new ActionHerosSubDefense(subDefense));
                                 }
 
                                 if(subVie > 0){
-                                    Jeu.getJoueur2().actionOnHero(new ActionHerosSubVie(null, subVie));
+                                    Jeu.getJoueur2().actionOnHero(new ActionHerosSubVie(subVie));
                                 }
+
+                                Tools.log("Le " + adversaire + " perd " + subDefense + "def et " + subVie + "pv", LogType.WARNING);
 
                             } else {
                                 Tools.log("Un serviteur avec l'effet Provocation gène votre attaque. Elle échoue (dignement bien ententu !).", Tools.getLogPlayer(joueurAttaquant));
@@ -240,44 +262,98 @@ public class Plateau {
         }
     }
 
+    /**
+     * Le joueur utilise l'action spéciale de son heros
+     * @param joueurExecutant joueur effectuant l'action
+     */
     public void actionSpeciale(Player joueurExecutant){
 
-        //TODO
-/*
         if(assezMana(joueurExecutant, 2)){
+
+            Heros heros = null;
 
             switch(joueurExecutant){
                 case JOUEUR1:
-
-
-
-
-
-
+                    heros = Jeu.getJoueur1().getHeros();
                     break;
 
                 case JOUEUR2:
+                    heros = Jeu.getJoueur2().getHeros();
+                    break;
+            }
+
+            switch(heros.getTypeCibleEffet()){
+                case HEROS:
+                    heros.getEffetHeros().action();
+                    break;
+
+                case SERVITEUR:
+                    if(isCartesPlateauJoueur(heros.getEffetServiteur().getCible())){
+                        heros.getEffetServiteur().action();
+                    }
 
                     break;
+
+                case CHOIX:
+                    TypeActeur cible = Tools.getTypeCible();
+
+                    if(cible == TypeActeur.HEROS){
+                        heros.getEffetHeros().action();
+                    } else {
+                        if(isCartesPlateauJoueur(heros.getEffetServiteur().getCible())){
+                            heros.getEffetServiteur().action();
+                        }
+                    }
+
             }
 
         } else {
             Tools.log("Vous n'avez pas assez de mana pour executer cette action.", LogType.WARNING);
         }
-*/
+    }
 
+    public void wakeUpServiteurs(Player player){
+
+        ArrayList<Serviteur> cartes;
+
+        switch (player){
+            case JOUEUR1:
+                cartes = this.getCartesJ1();
+                break;
+
+            case JOUEUR2:
+                cartes = this.getCartesJ2();
+                break;
+
+            default:
+                cartes = new ArrayList<>();
+                break;
+        }
+
+        for(int i=0; i<cartes.size(); i++){
+            if(cartes.get(i).isSleeping()){
+                ActionServiteur actionServiteur = new ActionServiteurSetSleeping(false);
+                actionServiteur.setServiteur(cartes.get(i));
+                cartes.set(i, actionServiteur);
+            }
+        }
 
     }
 
-
+    /**
+     * On vérifie que le joueur à le mana necessaire pour effectuer l'action
+     * @param player joueur concerné
+     * @param mana mana requis pour effectuer l'action
+     * @return Le joueur peut ou non effectuer l'action
+     */
     public boolean assezMana(Player player, int mana){
 
         switch (player){
             case JOUEUR1:
-                return Jeu.getJoueur1().getHeros().getMana() >= mana;
+                return Jeu.getJoueur1().assezMana(mana);
 
             case JOUEUR2:
-                return Jeu.getJoueur2().getHeros().getMana() >= mana;
+                return Jeu.getJoueur2().assezMana(mana);
         }
 
         return false;
@@ -285,22 +361,25 @@ public class Plateau {
 
     /**
      * Retourne la liste des cartes du JOUEUR1
-     *
      * @return liste des cartes du JOUEUR1
      */
-    public List<Serviteur> getCartesJ1() {
+    public ArrayList<Serviteur> getCartesJ1() {
         return serviteursJ1;
     }
 
     /**
      * Retourne la liste des cartes du JOUEUR2
-     *
      * @return liste des cartes du JOUEUR2
      */
-    public List<Serviteur> getCartesJ2() {
+    public ArrayList<Serviteur> getCartesJ2() {
         return serviteursJ2;
     }
 
+    /**
+     * Retourne une carte du plateau du JOUEUR1
+     * @param indice indice de la carte
+     * @return la carte désirée
+     */
     public Serviteur getCarteJ1(int indice) {
         if (indice >= 0 && indice < serviteursJ1.size()) {
             return serviteursJ1.get(indice);
@@ -309,6 +388,11 @@ public class Plateau {
         return null;
     }
 
+    /**
+     * Retourne une carte du plateau du JOUEUR2
+     * @param indice indice de la carte
+     * @return la carte désirée
+     */
     public Serviteur getCarteJ2(int indice) {
         if (indice >= 0 && indice < serviteursJ2.size()) {
             return serviteursJ2.get(indice);
@@ -317,32 +401,71 @@ public class Plateau {
         return null;
     }
 
-    public String afficheCartesJ1() {
-        StringBuilder cartes = new StringBuilder();
+    /**
+     * Affiche le contenu du plateau du joueur
+     * @param player joueur concerné
+     */
+    public void affichePlateauJoueur(Player player){
 
-        for (int i = 0; i < serviteursJ1.size(); i++) {
-            cartes.append("(" + i + ") " + serviteursJ1.get(i).getNom() + " " + serviteursJ1.get(i).getDegats() + ":" + serviteursJ1.get(i).getVie() + ",\n");
+        ArrayList<Serviteur> plateauJoueur = null;
+
+        switch(player){
+            case JOUEUR1:
+                plateauJoueur = this.serviteursJ1;
+                break;
+
+            case JOUEUR2:
+                plateauJoueur = this.serviteursJ2;
+                break;
         }
 
-        return cartes.toString();
-    }
+        StringBuilder cartes = new StringBuilder("Plateau "+ player +": \n");
 
-    public String afficheCartesJ2() {
-        StringBuilder cartes = new StringBuilder();
-
-        for (int i = 0; i < serviteursJ2.size(); i++) {
-            cartes.append("(" + i + ") " + serviteursJ2.get(i).toString() + ",\n");
+        for (int i = 0; i < plateauJoueur.size(); i++) {
+            cartes.append("(" + i + ") " + plateauJoueur.get(i).toString() + ",\n");
         }
 
-        return cartes.toString();
+        cartes.append("\n");
+
+        Tools.log(cartes.toString(), LogType.NORMAL);
+
     }
 
+    /**
+     * Méthode vérifiant la présence d'un serviteur provoquant sur le plateau du joueur
+     * @param player joueur observé
+     * @return La présence d'un Serviteur provoquant sur le plateau du joueur
+     */
     public boolean isServiteurProvoquant(Player player){
 
+        boolean isProvocation = false;
+        ArrayList<Serviteur> cartesJoueur = null;
 
-        return false;
+        switch(player){
+            case JOUEUR1:
+                cartesJoueur = getCartesJ1();
+                break;
+
+            case JOUEUR2:
+                cartesJoueur = getCartesJ2();
+                break;
+        }
+
+        for(Serviteur serviteur: cartesJoueur){
+            if(serviteur.isProvocation()){
+                isProvocation = true;
+                break;
+            }
+        }
+
+        return isProvocation;
     }
 
+    /**
+     * On controle la présence de cartes sur le plateau du joueur
+     * @param player joueur observé
+     * @return la présence de cartes sur le plateau
+     */
     public boolean isCartesPlateauJoueur(Player player){
 
         switch(player){
@@ -356,7 +479,9 @@ public class Plateau {
         return false;
     }
 
-
+    /**
+     * Methode permettant de purger le plateau des Serviteurs morts au combat
+     */
     public void purge() {
 
         ArrayList<Serviteur> toRemoveJ1 = new ArrayList<>();

@@ -6,9 +6,9 @@ public class ActionServiteurSubVie extends ActionServiteur {
 
     private int vie;
 
-    public ActionServiteurSubVie(Serviteur serviteur, int vie){
+    public ActionServiteurSubVie(int vie){
         super();
-        this.serviteur = serviteur;
+
         this.vie = vie;
     }
 

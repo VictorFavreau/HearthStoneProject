@@ -6,9 +6,8 @@ public class ActionHerosAddMana extends ActionHeros{
 
     private int mana;
 
-    public ActionHerosAddMana(Heros heros, int mana){
+    public ActionHerosAddMana(int mana){
         super();
-        this.heros = heros;
         this.mana = mana;
     }
 

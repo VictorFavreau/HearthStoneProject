@@ -20,7 +20,7 @@ public class Tourbillon extends Sort {
 
         //initialisation des effetsCarte
         Effet effet = new Effet(TypeEffet.PLATEAU, Player.TOUS, "Inflige 1 points de dégats à TOUS les serviteurs (y compris les vôtres)");
-        effet.setActionServiteur(new ActionServiteurSubVie(null, 1));
+        effet.setActionServiteur(new ActionServiteurSubVie(1));
         this.effetsCarte.add(effet);
 
     }

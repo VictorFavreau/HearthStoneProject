@@ -6,9 +6,8 @@ public class ActionServiteurAddDegats extends ActionServiteur {
 
     private int degats;
 
-    public ActionServiteurAddDegats(Serviteur serviteur, int degats){
+    public ActionServiteurAddDegats(int degats){
         super();
-        this.serviteur = serviteur;
         this.degats = degats;
     }
 

@@ -20,12 +20,12 @@ public class MaitriseDuBlocage extends Sort{
 
         //initialisation des effetsCarte
         Effet effet = new Effet(TypeEffet.HEROS, createur, "+5 d'armure au Heros");
-        effet.setActionHeros(new ActionHerosAddDefense(null,5));
+        effet.setActionHeros(new ActionHerosAddDefense(5));
         this.effetsCarte.add(effet);
 
-        effet = new Effet(TypeEffet.PIOCHE, createur, "place une carte aléatoire de la pioche dans votre main");
-        effet.setNbCartes(1);
-        this.effetsCarte.add(effet);
+        Effet effet2 = new Effet(TypeEffet.PIOCHE, createur, "place une carte aléatoire de la pioche dans votre main");
+        effet2.setNbCartes(1);
+        this.effetsCarte.add(effet2);
 
     }
 

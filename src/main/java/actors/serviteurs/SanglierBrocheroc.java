@@ -17,5 +17,6 @@ public class SanglierBrocheroc  extends Serviteur {
         this.sleeping = true;
         this.provocation = false;
         this.volVie = false;
+        this.charge = false;
     }
 }

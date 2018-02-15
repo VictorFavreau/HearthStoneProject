@@ -91,7 +91,7 @@ public class Tools {
 
         String str = readInput(message);
 
-        while(cible != TypeActeur.INVALIDE && cible != TypeActeur.SORT){
+        while(cible == TypeActeur.INVALIDE || cible == TypeActeur.SORT){
 
             switch(str.toUpperCase()){
                 case "H":
@@ -119,9 +119,11 @@ public class Tools {
         msg.append("(P) Paladin, Effet: Invoque un serviteur 'Recrue de la main d'argent' 1:1\n");
         msg.append("(G) Guerrier, Effet: Confère 2 points d'armure au Heros");
 
-        String str = readInput(msg.toString());
+
 
         while(classe == TypeClasse.NEUTRE){
+
+            String str = readInput(msg.toString());
 
             switch(str.toUpperCase()){
                 case "M":
@@ -204,15 +206,7 @@ public class Tools {
         StringBuilder msg = new StringBuilder("Saisir le code du serviteur: \n");
         String msgErreur = "Oops, il semblerait que le serviteur n'existe pas...";
 
-        switch(joueur){
-            case JOUEUR1:
-                msg.append(Jeu.getPlateau().afficheCartesJ1());
-                break;
-
-            case JOUEUR2:
-                msg.append(Jeu.getPlateau().afficheCartesJ2());
-                break;
-        }
+        Jeu.getPlateau().affichePlateauJoueur(joueur);
 
         while(!valide){
 
@@ -251,12 +245,18 @@ public class Tools {
      * Retourne le joueur saisie par l'utilisateur
      * @return joueur saisi
      */
-    public static Player readPlayer(){
+    public static Player readPlayer(String msg){
 
         boolean valide = false;
         Player player = null;
         int value;
-        String msg = "Selectionnez le joueur: \n(1) JOUEUR1, \n(2) JOUEUR2";
+
+        if(msg.equals("")){
+            String msgDefault = "Selectionnez le joueur: \n";
+        }
+
+        msg += "(1) JOUEUR1, (2) JOUEUR2";
+
         String msgErreur = "Oups, il semblerait que le joueur n'existe pas...";
 
         while(!valide){
@@ -296,39 +296,6 @@ public class Tools {
                 return LogType.NORMAL;
         }
     }
-
-    /*public static Heros readHeros(Player player){
-        boolean valide = false;
-        Heros heros = null;
-        int value;
-
-        String message = "Selectionnez la classe du "+ player + ": \n" + "(1) MAGE, (2) PALADIN, (3) GUERRIER";
-
-        while(!valide){
-
-            value = readIntegerValue(message);
-
-            switch(value){
-                case 1:
-                    heros = new HerosMage();
-                    valide = true;
-                    break;
-
-                case 2:
-                    heros = new HerosPaladin();
-                    valide = true;
-                    break;
-
-                case 3:
-                    heros = new HerosGuerrier();
-                    valide = true;
-                    break;
-            }
-
-        }
-
-        return heros;
-    }*/
 
     /**
      * Formatteur de message
