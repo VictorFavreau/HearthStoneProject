@@ -13,7 +13,7 @@ public class EtatAttente extends Etat {
         if(!Jeu.getJoueur1().isDead() && !Jeu.getJoueur2().isDead()) {
             switch (Tools.getInputType()) {
                 case POSER:
-                    poserCarte();
+                    this.tour.poserCarte();
                     break;
                 case QUITTER:
                     this.tour.quitterJeu();

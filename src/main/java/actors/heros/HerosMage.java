@@ -18,7 +18,8 @@ public class HerosMage extends Heros {
         this.vie = 30;
         this.typeHeros = TypeClasse.MAGE;
         this.defense = 0;
-        this.stockMana = 0;
+        this.mana = 1;
+        this.stockMana = 1;
         this.descr = "Inflige 1 point de dégats à un adversaire (Serviteur ou Heros)";
         this.typeCibleEffet = TypeActeur.CHOIX;
 

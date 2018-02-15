@@ -43,8 +43,8 @@ public class Tour implements InterfaceTour {
 
     @Override
     public void finTour() {
-        this.etatCourant = etatAttente;
-        this.etatCourant.passe();
+        this.etatCourant = etatFinTour;
+        this.etatCourant.finirTour();
     }
 
     @Override

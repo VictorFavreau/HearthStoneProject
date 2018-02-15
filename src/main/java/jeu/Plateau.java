@@ -147,119 +147,125 @@ public class Plateau {
      */
     public void attaque(Player joueurAttaquant) {
 
-        Player adversaire = Tools.getAdversaire(joueurAttaquant);
+        if(isCartesPlateauJoueur(joueurAttaquant)){
 
-        Tools.log("Selectionnez l'attaquant:", Tools.getLogPlayer(joueurAttaquant));
-        Serviteur attaquant = Tools.readServiteur(joueurAttaquant);
+            Player adversaire = Tools.getAdversaire(joueurAttaquant);
 
-        if(!attaquant.isSleeping()){
+            Tools.log("Selectionnez l'attaquant:", Tools.getLogPlayer(joueurAttaquant));
+            Serviteur attaquant = Tools.readServiteur(joueurAttaquant);
 
-            TypeActeur typeActeur = Tools.getTypeCible();
+            if(!attaquant.isSleeping()){
 
-            switch (typeActeur) {
-                case SERVITEUR:
-                    //On controle que le plateau du joueur cible n'est pas vide
-                    if(isCartesPlateauJoueur(adversaire)){
+                TypeActeur typeActeur = Tools.getTypeCible();
 
-                        Tools.log("Selectionnez le Serviteur cible de l'attaque:", Tools.getLogPlayer(joueurAttaquant));
-                        Serviteur cible = Tools.readServiteur(adversaire);
+                switch (typeActeur) {
+                    case SERVITEUR:
+                        //On controle que le plateau du joueur cible n'est pas vide
+                        if(isCartesPlateauJoueur(adversaire)){
 
-                        //On vérifie la présence de Serviteurs disposants de l'effet Provocation sur le plateau adverse. S'il y en a ils doivent être ciblés
-                        if(cible.isProvocation() || !isServiteurProvoquant(adversaire)){
+                            Tools.log("Selectionnez le Serviteur cible de l'attaque:", Tools.getLogPlayer(joueurAttaquant));
+                            Serviteur cible = Tools.readServiteur(adversaire);
 
-                            //Le serviteur attaque la cible
-                            actionOnCard(adversaire,cible, new ActionServiteurSubVie(attaquant.getDegats()));
+                            //On vérifie la présence de Serviteurs disposants de l'effet Provocation sur le plateau adverse. S'il y en a ils doivent être ciblés
+                            if(cible.isProvocation() || !isServiteurProvoquant(adversaire)){
 
-                            //L'attaquant prend des dégats
-                            actionOnCard(joueurAttaquant,attaquant, new ActionServiteurSubVie(cible.getDegats()));
+                                //Le serviteur attaque la cible
+                                actionOnCard(adversaire,cible, new ActionServiteurSubVie(attaquant.getDegats()));
 
-                            if(attaquant.isVolVie()){
+                                //L'attaquant prend des dégats
+                                actionOnCard(joueurAttaquant,attaquant, new ActionServiteurSubVie(cible.getDegats()));
 
-                                ActionHeros actionHeros = new ActionHerosAddVie(attaquant.getDegats());
-                                switch (joueurAttaquant){
-                                    case JOUEUR1:
-                                        actionHeros.setHeros(Jeu.getJoueur1().getHeros());
-                                        Jeu.getJoueur1().actionOnHero(actionHeros);
-                                        break;
+                                if(attaquant.isVolVie()){
 
-                                    case JOUEUR2:
-                                        actionHeros.setHeros(Jeu.getJoueur2().getHeros());
-                                        Jeu.getJoueur2().actionOnHero(actionHeros);
-                                        break;
+                                    ActionHeros actionHeros = new ActionHerosAddVie(attaquant.getDegats());
+                                    switch (joueurAttaquant){
+                                        case JOUEUR1:
+                                            actionHeros.setHeros(Jeu.getJoueur1().getHeros());
+                                            Jeu.getJoueur1().actionOnHero(actionHeros);
+                                            break;
+
+                                        case JOUEUR2:
+                                            actionHeros.setHeros(Jeu.getJoueur2().getHeros());
+                                            Jeu.getJoueur2().actionOnHero(actionHeros);
+                                            break;
+                                    }
                                 }
                             }
                         }
-                    }
 
-                    break;
+                        break;
 
-                case HEROS:
+                    case HEROS:
 
-                    int subVie = 0;
-                    int subDefense = 0;
+                        int subVie = 0;
+                        int subDefense = 0;
 
-                    switch (adversaire){
-                        case JOUEUR1:
+                        switch (adversaire){
+                            case JOUEUR1:
 
-                            if(!isServiteurProvoquant(adversaire)){
+                                if(!isServiteurProvoquant(adversaire)){
 
-                                if(Jeu.getJoueur1().getHeros().getDefense() >= attaquant.getDegats()){
-                                    subDefense = attaquant.getDegats();
+                                    if(Jeu.getJoueur1().getHeros().getDefense() >= attaquant.getDegats()){
+                                        subDefense = attaquant.getDegats();
+                                    } else {
+                                        subDefense = Jeu.getJoueur1().getHeros().getDefense();
+                                        subVie = attaquant.getDegats() - subDefense;
+                                    }
+
+                                    if(subDefense > 0){
+                                        Jeu.getJoueur1().actionOnHero(new ActionHerosSubDefense(subDefense));
+                                    }
+
+                                    if(subVie > 0){
+                                        Jeu.getJoueur1().actionOnHero(new ActionHerosSubVie(subVie));
+                                    }
+
+                                    Tools.log("Le " + adversaire + " perd " + subDefense + "def et " + subVie + "pv", LogType.WARNING);
+
                                 } else {
-                                    subDefense = Jeu.getJoueur1().getHeros().getDefense();
-                                    subVie = attaquant.getDegats() - subDefense;
+                                    Tools.log("Un serviteur avec l'effet Provocation gène votre attaque. Elle échoue (dignement bien ententu !).", Tools.getLogPlayer(joueurAttaquant));
                                 }
 
-                                if(subDefense > 0){
-                                    Jeu.getJoueur1().actionOnHero(new ActionHerosSubDefense(subDefense));
-                                }
+                                break;
 
-                                if(subVie > 0){
-                                    Jeu.getJoueur1().actionOnHero(new ActionHerosSubVie(subVie));
-                                }
+                            case JOUEUR2:
 
-                                Tools.log("Le " + adversaire + " perd " + subDefense + "def et " + subVie + "pv", LogType.WARNING);
+                                if(!isServiteurProvoquant(adversaire)){
 
-                            } else {
-                                Tools.log("Un serviteur avec l'effet Provocation gène votre attaque. Elle échoue (dignement bien ententu !).", Tools.getLogPlayer(joueurAttaquant));
-                            }
+                                    if(Jeu.getJoueur2().getHeros().getDefense() >= attaquant.getDegats()){
+                                        subDefense = attaquant.getDegats();
+                                    } else {
+                                        subDefense = Jeu.getJoueur2().getHeros().getDefense();
+                                        subVie = attaquant.getDegats() - subDefense;
+                                    }
 
-                            break;
+                                    if(subDefense > 0){
+                                        Jeu.getJoueur2().actionOnHero(new ActionHerosSubDefense(subDefense));
+                                    }
 
-                        case JOUEUR2:
+                                    if(subVie > 0){
+                                        Jeu.getJoueur2().actionOnHero(new ActionHerosSubVie(subVie));
+                                    }
 
-                            if(!isServiteurProvoquant(adversaire)){
+                                    Tools.log("Le " + adversaire + " perd " + subDefense + "def et " + subVie + "pv", LogType.WARNING);
 
-                                if(Jeu.getJoueur2().getHeros().getDefense() >= attaquant.getDegats()){
-                                    subDefense = attaquant.getDegats();
                                 } else {
-                                    subDefense = Jeu.getJoueur2().getHeros().getDefense();
-                                    subVie = attaquant.getDegats() - subDefense;
+                                    Tools.log("Un serviteur avec l'effet Provocation gène votre attaque. Elle échoue (dignement bien ententu !).", Tools.getLogPlayer(joueurAttaquant));
                                 }
 
-                                if(subDefense > 0){
-                                    Jeu.getJoueur2().actionOnHero(new ActionHerosSubDefense(subDefense));
-                                }
+                                break;
+                        }
+                        break;
+                }
 
-                                if(subVie > 0){
-                                    Jeu.getJoueur2().actionOnHero(new ActionHerosSubVie(subVie));
-                                }
-
-                                Tools.log("Le " + adversaire + " perd " + subDefense + "def et " + subVie + "pv", LogType.WARNING);
-
-                            } else {
-                                Tools.log("Un serviteur avec l'effet Provocation gène votre attaque. Elle échoue (dignement bien ententu !).", Tools.getLogPlayer(joueurAttaquant));
-                            }
-
-                            break;
-                    }
-
-                    break;
+            } else {
+                Tools.log("Le serviteur attaquant est en train de dormir ! Il serait dommage de le révéiller de façon si brutale...", LogType.INFO);
             }
-
         } else {
-            Tools.log("Le serviteur attaquant est en train de dormir ! Il serait dommage de le révéiller de façon si brutale...", LogType.INFO);
+            Tools.log("Il va être dur d'attaquer sans serviteur sur le plateau vous ne pensez pas ?", LogType.INFO);
         }
+
+
     }
 
     /**

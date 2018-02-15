@@ -47,9 +47,12 @@ public class Tools {
         StringBuilder message = new StringBuilder("Que souhaitez vous faire ?\n");
         message.append("(P) POSER CARTE, (A) ATTAQUER, (F) PASSER TOUR, (Q) QUITTER");
 
-        String str = readInput(message.toString());
+
 
         while(inputType == InputType.INVALIDE){
+
+            String str = readInput(message.toString());
+
             switch(str.toUpperCase()){
 
                 case "Q":
@@ -149,7 +152,14 @@ public class Tools {
      */
     public static String readInput(String msg){
         Scanner sc = new Scanner(System.in);
-        log(msg, LogType.INFO);
+
+        if(Jeu.getPlayerActuel() != null){
+            log(msg, getLogPlayer(Jeu.getPlayerActuel()));
+        } else {
+            log(msg, LogType.INFO);
+        }
+
+
         String str = sc.nextLine();
 
         return str;
@@ -299,27 +309,27 @@ public class Tools {
      */
     public static void log(String msg, LogType logType){
 
-        String prefixe;
+        String prefixe = "\n";
 
         switch(logType){
             case INFO:
-                prefixe = ">>> ";
+                prefixe += ">>> ";
                 break;
 
             case WARNING:
-                prefixe = "!!! ";
+                prefixe += "!!! ";
                 break;
 
             case JOUEUR1:
-                prefixe = "JOUEUR 1: ";
+                prefixe += "JOUEUR 1: ";
                 break;
 
             case JOUEUR2:
-                prefixe = "JOUEUR 2: ";
+                prefixe += "JOUEUR 2: ";
                 break;
 
             default:
-                prefixe = "";
+                prefixe += "";
                 break;
         }
 
@@ -351,9 +361,12 @@ public class Tools {
         StringBuilder message = new StringBuilder("Que souhaitez vous faire ?\n");
         message.append("(J) JOUER, (H) AIDE, (Q) QUITTER");
 
-        String str = readInput(message.toString());
+
 
         while(inputType == InputType.INVALIDE){
+
+            String str = readInput(message.toString());
+
             switch(str.toUpperCase()){
 
                 case "J":
