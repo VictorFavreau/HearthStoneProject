@@ -22,7 +22,7 @@ public class Jeu implements ObserverJeu{
     /**
      * Initialise une nouvelle partie
      */
-    public void joue(){
+    public static void joue(){
         plateau = new Plateau();
 
         //initialisation du joueur 1
