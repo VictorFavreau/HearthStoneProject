@@ -231,5 +231,4 @@ public class Joueur {
         return strBuilder.toString();
     }
 
-
 }

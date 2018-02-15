@@ -1,20 +1,22 @@
 package jeu;
 
-import actors.Heros;
 import actors.TypeClasse;
 import utils.LogType;
+import state.InterfaceTour;
 import utils.Player;
 import utils.Tools;
 
-public class Jeu {
+public class Jeu implements ObserverJeu{
 
     private static Plateau plateau;
     private static Joueur joueur1;
     private static Joueur joueur2;
     private static Player playerActuel;
+    private InterfaceTour tour;
+    private boolean finJeu;
 
     public Jeu(){
-
+        this.finJeu = false;
     }
 
     /**
@@ -47,7 +49,7 @@ public class Jeu {
     /**
      * Change de joueur actif
      */
-    public void changeJoueur(){
+    public static void changeJoueur(){
         switch(playerActuel){
             case JOUEUR1:
                 playerActuel = Player.JOUEUR2;
@@ -85,6 +87,15 @@ public class Jeu {
         }
 
         return joueur;
+    }
+
+
+
+
+    @Override
+    public void finGame() {
+        this.finJeu = this.tour.isFinJeu();
+        Tools.finJeu();
     }
 
     /**

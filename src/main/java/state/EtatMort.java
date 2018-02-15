@@ -6,6 +6,7 @@ public class EtatMort extends Etat{
     }
 
     public void finPartie(){
-
+        this.tour.setFinJeu(true);
+        this.tour.notifierObs();
     }
 }

@@ -1,6 +1,7 @@
 package state;
 
 import jeu.Jeu;
+import utils.Tools;
 
 public class EtatAttente extends Etat {
 
@@ -8,13 +9,30 @@ public class EtatAttente extends Etat {
         super(tour);
     }
 
-    public void peutJouer(){
+    public void attenteAction(){
+        if(!Jeu.getJoueur1().isDead() && !Jeu.getJoueur2().isDead()) {
+            switch (Tools.getInputType()) {
+                case POSER:
+                    poserCarte();
+                    break;
+                case QUITTER:
+                    this.tour.quitterJeu();
+                    break;
+                case HELP:
+                    this.tour.afficherAide();
+                    break;
+                case FIN_TOUR:
+                    this.tour.finTour();
+                    break;
+                case ATTAQUER:
+                    this.tour.attaquer();
+                    break;
+                default:
+                    this.attenteAction();
+            }
+        } else {
+            //Un joueur est mort on arrête donc la partie et on affiche le message de fin du jeu
 
-    }
-
-    public void estAttaquer(){
-
-
-
+        }
     }
 }

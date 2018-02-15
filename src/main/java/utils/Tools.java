@@ -339,4 +339,12 @@ public class Tools {
             return Player.JOUEUR2;
         }
     }
+
+    public static void finJeu(){
+        if(Jeu.getJoueur1().isDead()){
+            log("Le joueur "+Player.JOUEUR2+" a gagné la partie.", LogType.WARNING);
+        } else {
+            log("Le joueur "+Player.JOUEUR1+" a gagné la partie.", LogType.WARNING);
+        }
+    }
 }
