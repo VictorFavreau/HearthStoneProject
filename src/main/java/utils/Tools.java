@@ -45,22 +45,15 @@ public class Tools {
 
         InputType inputType = InputType.INVALIDE;
         StringBuilder message = new StringBuilder("Que souhaitez vous faire ?\n");
+        message.append("(P) POSER CARTE, (A) ATTAQUER, (F) PASSER TOUR, (Q) QUITTER");
 
         String str = readInput(message.toString());
 
         while(inputType == InputType.INVALIDE){
             switch(str.toUpperCase()){
 
-                case "J":
-                    inputType = InputType.JOUER;
-                    break;
-
                 case "Q":
                     inputType = InputType.QUITTER;
-                    break;
-
-                case "H":
-                    inputType = InputType.HELP;
                     break;
 
                 case "A":
@@ -74,6 +67,8 @@ public class Tools {
                 case "F":
                     inputType = InputType.FIN_TOUR;
                     break;
+
+
 
                 default:
                     log("Bien tenté, mais il m'est impossible d'effectuer l'action "+ str.toUpperCase() + " désolé... Recommencez !", LogType.WARNING);
@@ -343,8 +338,48 @@ public class Tools {
     public static void finJeu(){
         if(Jeu.getJoueur1().isDead()){
             log("Le joueur "+Player.JOUEUR2+" a gagné la partie.", LogType.WARNING);
-        } else {
+        } else if (Jeu.getJoueur2().isDead()) {
             log("Le joueur "+Player.JOUEUR1+" a gagné la partie.", LogType.WARNING);
+        } else {
+            log("Merci d'avoir joué !", LogType.INFO);
         }
     }
+
+    public static InputType getInputMenu(){
+
+        InputType inputType = InputType.INVALIDE;
+        StringBuilder message = new StringBuilder("Que souhaitez vous faire ?\n");
+        message.append("(J) JOUER, (H) AIDE, (Q) QUITTER");
+
+        String str = readInput(message.toString());
+
+        while(inputType == InputType.INVALIDE){
+            switch(str.toUpperCase()){
+
+                case "J":
+                    inputType = InputType.JOUER;
+                    break;
+
+                case "Q":
+                    inputType = InputType.QUITTER;
+                    break;
+
+                case "H":
+                    inputType = InputType.HELP;
+                    break;
+
+                default:
+                    log("Bien tenté, mais il m'est impossible d'effectuer l'action "+ str.toUpperCase() + " désolé... Recommencez !", LogType.WARNING);
+                    break;
+            }
+        }
+
+        return inputType;
+
+
+
+    }
+
+
+
 }

@@ -22,7 +22,7 @@ public class Jeu implements ObserverJeu{
     /**
      * Initialise une nouvelle partie
      */
-    public static void joue(){
+    public static void init(){
         plateau = new Plateau();
 
         //initialisation du joueur 1
@@ -90,13 +90,18 @@ public class Jeu implements ObserverJeu{
     }
 
 
-
+    @Override
+    public boolean isFinJeu() {
+        return finJeu;
+    }
 
     @Override
     public void finGame() {
         this.finJeu = this.tour.isFinJeu();
         Tools.finJeu();
     }
+
+
 
     /**
      * Affiche les stats de la partie
