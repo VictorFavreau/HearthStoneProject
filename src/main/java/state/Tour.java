@@ -1,6 +1,6 @@
 package state;
 
-import jeu.Joueur;
+
 import jeu.ObserverJeu;
 
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ public class Tour implements InterfaceTour {
     private EtatStats etatStats;
     private boolean finJeu;
 
-    public Tour(Joueur joueur){
+    public Tour(){
         this.etatCourant = new EtatJoue(this);
         this.obs = new ArrayList<ObserverJeu>();
         this.finJeu = false;
@@ -47,8 +47,8 @@ public class Tour implements InterfaceTour {
 
     @Override
     public void finTour() {
-        this.etatCourant = etatAttente;
-        this.etatCourant.passe();
+        this.etatCourant = etatFinTour;
+        this.etatCourant.finirTour();
     }
 
     @Override

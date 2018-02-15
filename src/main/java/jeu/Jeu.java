@@ -6,6 +6,8 @@ import state.InterfaceTour;
 import utils.Player;
 import utils.Tools;
 
+import java.util.Random;
+
 public class Jeu implements ObserverJeu{
 
     private static Plateau plateau;
@@ -22,7 +24,7 @@ public class Jeu implements ObserverJeu{
     /**
      * Initialise une nouvelle partie
      */
-    public static void joue(){
+    public static void init(){
         plateau = new Plateau();
 
         //initialisation du joueur 1
@@ -32,6 +34,52 @@ public class Jeu implements ObserverJeu{
         //initialisation du joueur 2
         TypeClasse classeJoueur2 = Tools.getClasse(Player.JOUEUR2);
         joueur2 = new Joueur(classeJoueur2, Player.JOUEUR2);
+
+        playerActuel = getRandomPlayer();
+
+        Tools.log(playerActuel + " commence la partie !", LogType.INFO);
+
+        switch (playerActuel){
+            case JOUEUR1:
+                joueur1.pioche();
+                joueur1.pioche();
+                joueur1.pioche();
+
+                joueur2.pioche();
+                joueur2.pioche();
+                joueur2.pioche();
+                joueur2.pioche();
+                break;
+
+            case JOUEUR2:
+                joueur2.pioche();
+                joueur2.pioche();
+                joueur2.pioche();
+
+                joueur1.pioche();
+                joueur1.pioche();
+                joueur1.pioche();
+                joueur1.pioche();
+                break;
+        }
+
+    }
+
+    private static Player getRandomPlayer(){
+
+        Random randomGenerator = new Random();
+        int randomIndice = randomGenerator.nextInt(2);
+
+        switch (randomIndice){
+            case 0:
+                return Player.JOUEUR1;
+
+            case 1:
+                return Player.JOUEUR2;
+
+            default:
+                return Player.JOUEUR1;
+        }
     }
 
     public static Plateau getPlateau() {
@@ -90,13 +138,18 @@ public class Jeu implements ObserverJeu{
     }
 
 
-
+    @Override
+    public boolean isFinJeu() {
+        return finJeu;
+    }
 
     @Override
     public void finGame() {
         this.finJeu = this.tour.isFinJeu();
         Tools.finJeu();
     }
+
+
 
     /**
      * Affiche les stats de la partie

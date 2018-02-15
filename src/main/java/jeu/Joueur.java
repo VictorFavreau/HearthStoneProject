@@ -149,7 +149,7 @@ public class Joueur {
         boolean valide = false;
 
         Tools.log("", Tools.getLogPlayer(player));
-        String msg = "Quelle carte souhaitez vous poser ?\n" + afficheMain();
+        String msg = "Quelle carte souhaitez vous poser ? Il vous reste: "+ heros.getMana() + "/"+ heros.getStockMana() +" mana\n" + afficheMain();
         int indice = Tools.readIntegerValue(msg);
 
 

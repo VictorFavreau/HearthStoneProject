@@ -8,7 +8,7 @@ public class EtatJoue extends Etat {
     }
 
     public void jouer(){
-        Jeu.joue();
+        Jeu.init();
         this.tour.attenteAction();
     }
 }

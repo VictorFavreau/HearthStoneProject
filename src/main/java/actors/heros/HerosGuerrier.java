@@ -18,7 +18,8 @@ public class HerosGuerrier extends Heros {
         this.vie = 30;
         this.typeHeros = TypeClasse.MAGE;
         this.defense = 0;
-        this.stockMana = 0;
+        this.mana = 1;
+        this.stockMana = 1;
         this.descr = "Confère 2 points d'armure au Heros";
         this.typeCibleEffet = TypeActeur.HEROS;
 

@@ -5,6 +5,10 @@ import actors.Serviteur;
 import decorators.ActionServiteurAddVie;
 import decorators.ActionServiteurSubVie;
 import jeu.Jeu;
+import jeu.ObserverJeu;
+import state.InterfaceTour;
+import state.Tour;
+import utils.InputType;
 import utils.LogType;
 import utils.Player;
 import utils.Tools;
@@ -17,7 +21,54 @@ public class Main {
 
     public static void main(String[] args) {
         //Welcome to the HearthStone project
+
         Tools.printHearthStone();
+
+        InterfaceTour tour = new Tour();
+        ObserverJeu obs = new Jeu();
+
+        tour.enregistrerObs(obs);
+
+
+
+
+
+        while(!obs.isFinJeu()){
+
+            InputType inputMenu = Tools.getInputMenu();
+
+            switch (inputMenu){
+                case JOUER:
+                    tour.joue();
+                    break;
+
+                case HELP:
+                    //Tools.help();
+                    Tools.log("HELP", LogType.INFO);
+                    break;
+
+            }
+
+            if(inputMenu == InputType.QUITTER) break;
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       /*
+
 
 
         Jeu jeu = new Jeu();
@@ -46,14 +97,14 @@ public class Main {
 
 
         for(int i=0; i< 3; i++){
-            Jeu.getJoueur1().poseCarte();
-            Jeu.getJoueur2().poseCarte();
+           // Jeu.getJoueur1().poseCarte();
+           // Jeu.getJoueur2().poseCarte();
 
             //Jeu.getJoueur1().attaque();
             Jeu.getJoueur1().actionSpeciale();
 
             Jeu.afficheStat();
-            Jeu.getJoueur1().wakeUpServiteurs();
+           // Jeu.getJoueur1().wakeUpServiteurs();
         }
 
 

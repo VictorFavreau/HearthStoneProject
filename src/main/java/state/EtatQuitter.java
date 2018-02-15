@@ -6,6 +6,6 @@ public class EtatQuitter extends Etat{
     }
 
     public void arreterJeu(){
-
+        this.tour.finJeu();
     }
 }
