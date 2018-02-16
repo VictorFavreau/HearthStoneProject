@@ -7,7 +7,10 @@ import utils.Player;
 import java.util.LinkedList;
 import java.util.Random;
 
-//TODO
+/**
+ * @author: Anais BESSON et Victor FAVREAU
+ */
+
 public abstract class Deck {
 
     protected LinkedList<Carte> cartesDeck;

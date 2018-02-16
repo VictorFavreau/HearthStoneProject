@@ -5,6 +5,9 @@ import actors.sorts.MaitriseDuBlocage;
 import actors.sorts.Tourbillon;
 import utils.Player;
 
+/**
+ * @author: Anais BESSON et Victor FAVREAU
+ */
 public class DeckGuerrier extends Deck{
 
     public DeckGuerrier(Player joueur){

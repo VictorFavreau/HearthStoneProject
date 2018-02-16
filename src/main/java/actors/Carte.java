@@ -9,6 +9,9 @@ import utils.Tools;
 
 import java.util.LinkedList;
 
+/**
+ * @author: Anais BESSON et Victor FAVREAU
+ */
 public abstract class Carte extends Acteur {
 
     protected Player createur;

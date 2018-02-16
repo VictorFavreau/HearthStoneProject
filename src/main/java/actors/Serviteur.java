@@ -8,7 +8,7 @@ import utils.Tools;
 import java.util.LinkedList;
 
 /**
- * author: Anais BESSON & Victor FAVREAU
+ * @author: Anais BESSON et Victor FAVREAU
  */
 public abstract class Serviteur extends Carte{
 

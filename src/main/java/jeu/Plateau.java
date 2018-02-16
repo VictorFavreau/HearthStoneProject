@@ -5,12 +5,14 @@ import decorators.*;
 import utils.LogType;
 import utils.Player;
 import utils.Tools;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Logger;
 
+/**
+ * @author: Anais BESSON et Victor FAVREAU
+ */
 public class Plateau {
 
     ArrayList<Serviteur> serviteursJ1;

@@ -3,9 +3,11 @@ package decorators;
 import actors.Serviteur;
 import actors.sorts.effet.Effet;
 import utils.Player;
-
 import java.util.LinkedList;
 
+/**
+ * @author: Anais BESSON et Victor FAVREAU
+ */
 public abstract class ActionServiteur extends Serviteur {
 
     Serviteur serviteur;

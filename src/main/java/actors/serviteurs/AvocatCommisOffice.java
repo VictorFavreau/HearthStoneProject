@@ -4,6 +4,9 @@ import actors.Serviteur;
 import actors.TypeClasse;
 import utils.Player;
 
+/**
+ * @author: Anais BESSON et Victor FAVREAU
+ */
 public class AvocatCommisOffice extends Serviteur {
 
     public AvocatCommisOffice(Player createur){

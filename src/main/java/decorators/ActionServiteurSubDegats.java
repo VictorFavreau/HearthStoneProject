@@ -1,7 +1,8 @@
 package decorators;
 
-import actors.Serviteur;
-
+/**
+ * @author: Anais BESSON et Victor FAVREAU
+ */
 public class ActionServiteurSubDegats extends ActionServiteur {
 
     private int degats;

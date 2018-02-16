@@ -11,6 +11,9 @@ import decorators.ActionServiteurSubVie;
 import utils.Player;
 import utils.Tools;
 
+/**
+ * @author: Anais BESSON et Victor FAVREAU
+ */
 public class HerosMage extends Heros {
 
     public HerosMage(Player joueur){

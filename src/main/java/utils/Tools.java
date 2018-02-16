@@ -2,16 +2,12 @@ package utils;
 
 
 import actors.*;
-import actors.heros.HerosGuerrier;
-import actors.heros.HerosMage;
-import actors.heros.HerosPaladin;
-import com.sun.deploy.util.StringUtils;
 import jeu.Jeu;
 
 import java.util.Scanner;
 
 /**
- * author: Anais BESSON & Victor FAVREAU
+ * @author: Anais BESSON et Victor FAVREAU
  */
 public class Tools {
 
@@ -31,7 +27,7 @@ public class Tools {
         stringBuffer.append("| | | ||  __/| (_| || |   | |_ | | | |/\\__/ /| |_| (_) || | | ||  __/\n");
         stringBuffer.append("\\_| |_/ \\___| \\__,_||_|    \\__||_| |_|\\____/  \\__|\\___/ |_| |_| \\___|\n");
         stringBuffer.append("\n");
-        stringBuffer.append(" by Anais BESSON & Victor FAVREAU - LP MiAR Alternance\n");
+        stringBuffer.append(" by Anais BESSON et Victor FAVREAU - LP MiAR Alternance\n");
         stringBuffer.append("======================================================================\n");
 
         log(stringBuffer.toString(), LogType.NORMAL);
@@ -232,6 +228,7 @@ public class Tools {
 
     /**
      * Retourne le joueur saisie par l'utilisateur
+     * @param msg : Message saisie sur la console du terminal par l'utilisateur
      * @return joueur saisi
      */
     public static Player readPlayer(String msg){

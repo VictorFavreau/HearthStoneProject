@@ -1,7 +1,7 @@
 package actors;
 
 /**
- * author: Anais BESSON & Victor FAVREAU
+ * @author: Anais BESSON et Victor FAVREAU
  */
 public abstract class Acteur implements Cloneable{
 
@@ -22,6 +22,7 @@ public abstract class Acteur implements Cloneable{
 
     /**
      * GETTERS
+     * @return Le nombre de vie de l'acteur
      */
 
     public int getVie() {

@@ -11,6 +11,9 @@ import decorators.ActionServiteurSubDegats;
 import utils.Player;
 import utils.Tools;
 
+/**
+ * @author: Anais BESSON et Victor FAVREAU
+ */
 public class HerosGuerrier extends Heros {
 
     public HerosGuerrier(Player joueur){

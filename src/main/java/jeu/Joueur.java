@@ -15,11 +15,11 @@ import decorators.ActionHerosSubMana;
 import utils.LogType;
 import utils.Player;
 import utils.Tools;
-
 import java.util.LinkedList;
 
-import static actors.TypeClasse.MAGE;
-
+/**
+ * @author: Anais BESSON et Victor FAVREAU
+ */
 public class Joueur {
 
     private TypeClasse classe;
@@ -84,6 +84,7 @@ public class Joueur {
 
     /**
      * Incrémente la quantité de mana possédée par le héros de 1
+     * @param mana : nombre de mana à ajouter au héros
      */
     public void addMana(int mana) {
         if (this.heros.getMana() < this.heros.getStockMana()) {

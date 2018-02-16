@@ -1,7 +1,7 @@
 package utils;
 
 /**
- * author: Anais BESSON & Victor FAVREAU
+ * @author: Anais BESSON et Victor FAVREAU
  */
 public enum InputType {
     INVALIDE,

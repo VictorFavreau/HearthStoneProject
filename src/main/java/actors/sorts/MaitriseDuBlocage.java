@@ -7,7 +7,9 @@ import actors.sorts.effet.TypeEffet;
 import decorators.ActionHerosAddDefense;
 import utils.Player;
 
-
+/**
+ * @author: Anais BESSON et Victor FAVREAU
+ */
 public class MaitriseDuBlocage extends Sort{
 
     public MaitriseDuBlocage(Player createur){

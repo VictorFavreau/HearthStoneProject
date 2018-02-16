@@ -4,35 +4,35 @@
   <OriginalElement />
   <nodes>
     <node x="3746.5222259685283" y="873.0">decorators.ActionHerosAddStockMana</node>
-    <node x="1691.441444256326" y="2223.0">actors.sorts.effet.Effet</node>
     <node x="2816.4548680614002" y="4662.0">actors.sorts.BenedictionDePuissance</node>
+    <node x="2042.8646885074136" y="2318.1771286513363">actors.sorts.effet.Effet</node>
     <node x="2981.745218606975" y="0.0">actors.Acteur</node>
     <node x="1812.641444256326" y="640.0">decorators.ActionHeros</node>
     <node x="4113.022225968529" y="1064.5">actors.heros.HerosPaladin</node>
     <node x="1782.191444256326" y="4263.0">decorators.ActionServiteurSetSleeping</node>
-    <node x="1525.641444256326" y="1840.0">jeu.Jeu</node>
-    <node x="4345.882520086176" y="1415.5">state.InterfaceTour</node>
     <node x="340.75843948997203" y="1064.5">actors.heros.HerosMage</node>
+    <node x="4345.882520086176" y="1415.5">state.InterfaceTour</node>
+    <node x="1525.641444256326" y="1840.0">jeu.Jeu</node>
     <node x="3354.298587113469" y="2898.0">actors.Carte</node>
     <node x="5148.882520086176" y="1459.5">state.EtatPoseCarte</node>
-    <node x="3964.5222259685283" y="873.0">decorators.ActionHerosAddMana</node>
     <node x="4997.371884868123" y="1840.0">state.Tour</node>
+    <node x="3964.5222259685283" y="873.0">decorators.ActionHerosAddMana</node>
     <node x="1597.191444256326" y="3856.5">actors.serviteurs.AvocatCommisOffice</node>
     <node x="152.75843948997203" y="873.0">decorators.ActionServiteurSubVie</node>
     <node x="2862.9414442563257" y="4263.0">decorators.ActionServiteurSetProvocation</node>
     <node x="3105.9414442563257" y="4285.5">actors.Sort</node>
     <node x="3491.775861909211" y="4662.0">actors.sorts.MaitriseDuBlocage</node>
-    <node x="1048.7126699056764" y="873.0">decorators.ActionHerosSubMana</node>
     <node x="3654.9057299706114" y="1360.0">jeu.Joueur</node>
+    <node x="1048.7126699056764" y="873.0">decorators.ActionHerosSubMana</node>
     <node x="1742.441444256326" y="3297.0">actors.Serviteur</node>
     <node x="2529.6914442563257" y="3856.5">actors.serviteurs.SoldatCompteOr</node>
     <node x="2348.6914442563257" y="3856.5">actors.serviteurs.ChevaucheurDeLoup</node>
     <node x="4172.647225968529" y="895.5">actors.serviteurs.CustomServiteur</node>
     <node x="1919.641444256326" y="1064.5">actors.heros.HerosGuerrier</node>
-    <node x="629.396801399183" y="873.0">decorators.ActionHerosSubVie</node>
     <node x="2688.6914442563257" y="3856.5">actors.serviteurs.SanglierBrocheroc</node>
-    <node x="1161.691444256326" y="3724.0">decorators.ActionServiteur</node>
+    <node x="629.396801399183" y="873.0">decorators.ActionHerosSubVie</node>
     <node x="1785.141444256326" y="191.0">actors.Heros</node>
+    <node x="1161.691444256326" y="3724.0">decorators.ActionServiteur</node>
     <node x="876.133439489972" y="4662.0">actors.sorts.Methamorphose</node>
     <node x="607.883439489972" y="4662.0">actors.sorts.Consecration</node>
     <node x="2854.6914442563257" y="3856.5">actors.serviteurs.ChampionFriselame</node>
@@ -40,18 +40,15 @@
     <node x="3649.5222259685283" y="1064.5">actors.deck.Deck</node>
     <node x="1994.191444256326" y="4263.0">decorators.ActionServiteurAddDegats</node>
     <node x="2203.1914442563257" y="4263.0">decorators.ActionServiteurSetVolVie</node>
-    <node x="4921.882520086176" y="1459.5">state.EtatAttaquant</node>
     <node x="5087.04858711347" y="998.0">state.Etat</node>
     <node x="1252.941444256326" y="4263.0">decorators.ActionServiteurSubDegats</node>
-    <node x="1443.441444256326" y="3856.5">actors.serviteurs.YetiNoir</node>
     <node x="3015.4548680614002" y="4662.0">actors.sorts.Tourbillon</node>
     <node x="1439.641444256326" y="873.0">decorators.ActionHerosAddVie</node>
-    <node x="1613.641444256326" y="873.0">decorators.ActionHerosSubDefense</node>
     <node x="1404.401305045189" y="1375.7935034802783">jeu.Plateau</node>
+    <node x="1613.641444256326" y="873.0">decorators.ActionHerosSubDefense</node>
     <node x="3352.775861909211" y="4662.0">actors.sorts.ImageMirroir</node>
-    <node x="5331.882520086176" y="1459.5">state.EtatVictime</node>
-    <node x="1217.307142857143" y="4662.0">actors.serviteurs.ChefDeRaid</node>
     <node x="4553.882520086176" y="1437.5">state.EtatJoue</node>
+    <node x="1217.307142857143" y="4662.0">actors.serviteurs.ChefDeRaid</node>
     <node x="426.88343948997203" y="4662.0">actors.sorts.ExplosionDesArcanes</node>
     <node x="3453.798587113469" y="873.0">decorators.ActionHerosAddDefense</node>
     <node x="1459.941444256326" y="4263.0">decorators.ActionServiteurAddVie</node>
@@ -84,29 +81,29 @@
       <point x="2001.2296795504435" y="560.0" />
       <point x="97.58823529411757" y="169.5" />
     </edge>
-    <edge source="decorators.ActionServiteurSubDegats" target="decorators.ActionServiteur">
-      <point x="-46.75" y="-37.5" />
-      <point x="1299.691444256326" y="4089.0" />
-      <point x="1209.0485871134686" y="4089.0" />
-      <point x="-63.14285714285734" y="147.5" />
-    </edge>
     <edge source="actors.sorts.Consecration" target="actors.Sort">
       <point x="48.0" y="-15.0" />
       <point x="715.883439489972" y="4592.0" />
       <point x="3121.1557299706114" y="4592.0" />
       <point x="-20.28571428571422" y="15.0" />
     </edge>
-    <edge source="decorators.ActionHerosAddMana" target="decorators.ActionHeros">
-      <point x="-42.0" y="-37.5" />
-      <point x="4006.5222259685283" y="823.0" />
-      <point x="1985.541444256326" y="823.0" />
-      <point x="81.89999999999998" y="81.5" />
+    <edge source="decorators.ActionServiteurSubDegats" target="decorators.ActionServiteur">
+      <point x="-46.75" y="-37.5" />
+      <point x="1299.691444256326" y="4089.0" />
+      <point x="1209.0485871134686" y="4089.0" />
+      <point x="-63.14285714285734" y="147.5" />
     </edge>
     <edge source="actors.sorts.MaitriseDuBlocage" target="actors.Sort">
       <point x="-55.875" y="-15.0" />
       <point x="3510.400861909211" y="4592.0" />
       <point x="3171.870015684897" y="4592.0" />
       <point x="30.42857142857156" y="15.0" />
+    </edge>
+    <edge source="decorators.ActionHerosAddMana" target="decorators.ActionHeros">
+      <point x="-42.0" y="-37.5" />
+      <point x="4006.5222259685283" y="823.0" />
+      <point x="1985.541444256326" y="823.0" />
+      <point x="81.89999999999998" y="81.5" />
     </edge>
     <edge source="decorators.ActionHerosSubVie" target="decorators.ActionHeros">
       <point x="38.0" y="-37.5" />
@@ -120,17 +117,17 @@
       <point x="3161.72715854204" y="4622.0" />
       <point x="20.28571428571422" y="15.0" />
     </edge>
-    <edge source="decorators.ActionServiteurSetVolVie" target="decorators.ActionServiteur">
-      <point x="-45.0" y="-37.5" />
-      <point x="2248.1914442563257" y="4049.0" />
-      <point x="1335.3343013991832" y="4049.0" />
-      <point x="63.14285714285734" y="147.5" />
-    </edge>
     <edge source="decorators.ActionServiteurTransform" target="decorators.ActionServiteur">
       <point x="81.66666666666674" y="-191.5" />
       <point x="1067.786682351564" y="4089.0" />
       <point x="1177.4771585420401" y="4089.0" />
       <point x="-94.71428571428578" y="147.5" />
+    </edge>
+    <edge source="decorators.ActionServiteurSetVolVie" target="decorators.ActionServiteur">
+      <point x="-45.0" y="-37.5" />
+      <point x="2248.1914442563257" y="4049.0" />
+      <point x="1335.3343013991832" y="4049.0" />
+      <point x="63.14285714285734" y="147.5" />
     </edge>
     <edge source="actors.heros.HerosMage" target="actors.Heros">
       <point x="0.0" y="-15.0" />
@@ -138,17 +135,23 @@
       <point x="1806.0532089622084" y="560.0" />
       <point x="-97.58823529411762" y="169.5" />
     </edge>
+    <edge source="actors.sorts.Tourbillon" target="actors.Sort">
+      <point x="-13.125" y="-15.0" />
+      <point x="3054.8298680614002" y="4622.0" />
+      <point x="3151.584301399183" y="4622.0" />
+      <point x="10.14285714285711" y="15.0" />
+    </edge>
     <edge source="decorators.ActionServiteur" target="actors.Serviteur">
       <point x="41.4375" y="-147.5" />
       <point x="1313.628944256326" y="3634.0" />
       <point x="1749.097694256326" y="3634.0" />
       <point x="-99.84375" y="158.5" />
     </edge>
-    <edge source="actors.sorts.Tourbillon" target="actors.Sort">
-      <point x="-13.125" y="-15.0" />
-      <point x="3054.8298680614002" y="4622.0" />
-      <point x="3151.584301399183" y="4622.0" />
-      <point x="10.14285714285711" y="15.0" />
+    <edge source="actors.serviteurs.ChevaucheurDeLoup" target="actors.Serviteur">
+      <point x="0.0" y="-15.0" />
+      <point x="2429.1914442563257" y="3674.0" />
+      <point x="1895.535194256326" y="3674.0" />
+      <point x="46.59375" y="158.5" />
     </edge>
     <edge source="decorators.ActionServiteurSubVie" target="decorators.ActionServiteur">
       <point x="0.0" y="37.5" />
@@ -164,12 +167,6 @@
       <point x="1908.847694256326" y="3664.0" />
       <point x="59.90625" y="158.5" />
     </edge>
-    <edge source="actors.serviteurs.ChevaucheurDeLoup" target="actors.Serviteur">
-      <point x="0.0" y="-15.0" />
-      <point x="2429.1914442563257" y="3674.0" />
-      <point x="1895.535194256326" y="3674.0" />
-      <point x="46.59375" y="158.5" />
-    </edge>
     <edge source="decorators.ActionServiteurSetProvocation" target="decorators.ActionServiteur">
       <point x="-52.75" y="-37.5" />
       <point x="2915.6914442563257" y="4039.0" />
@@ -182,17 +179,17 @@
       <point x="3391.631920446802" y="3257.0" />
       <point x="-74.66666666666652" y="169.5" />
     </edge>
-    <edge source="state.Tour" target="state.InterfaceTour">
-      <point x="-71.64705882352939" y="-136.5" />
-      <point x="5027.224826044594" y="1800.0" />
-      <point x="4439.382520086176" y="1800.0" />
-      <point x="0.0" y="70.0" />
-    </edge>
     <edge source="actors.serviteurs.CustomServiteur" target="actors.Serviteur">
       <point x="17.25" y="15.0" />
       <point x="4258.897225968529" y="3277.0" />
       <point x="1945.7596260745079" y="3277.0" />
       <point x="96.81818181818198" y="-158.5" />
+    </edge>
+    <edge source="state.Tour" target="state.InterfaceTour">
+      <point x="-71.64705882352939" y="-136.5" />
+      <point x="5027.224826044594" y="1800.0" />
+      <point x="4439.382520086176" y="1800.0" />
+      <point x="0.0" y="70.0" />
     </edge>
     <edge source="decorators.ActionHerosSubMana" target="decorators.ActionHeros">
       <point x="41.5" y="-37.5" />
@@ -211,18 +208,6 @@
       <point x="1903.641444256326" y="166.0" />
       <point x="3036.995218606975" y="166.0" />
       <point x="-55.25" y="70.5" />
-    </edge>
-    <edge source="state.EtatAttaquant" target="state.Etat">
-      <point x="0.0" y="-26.0" />
-      <point x="5024.882520086176" y="1231.0" />
-      <point x="5152.498587113469" y="1231.0" />
-      <point x="-28.049999999999955" y="81.5" />
-    </edge>
-    <edge source="actors.serviteurs.YetiNoir" target="actors.Serviteur">
-      <point x="0.0" y="-15.0" />
-      <point x="1489.941444256326" y="3674.0" />
-      <point x="1802.347694256326" y="3674.0" />
-      <point x="-46.59375" y="158.5" />
     </edge>
     <edge source="actors.Sort" target="actors.Carte">
       <point x="0.0" y="-15.0" />
@@ -246,17 +231,17 @@
       <point x="1842.285194256326" y="3704.0" />
       <point x="-6.65625" y="158.5" />
     </edge>
-    <edge source="decorators.ActionServiteurAddVie" target="decorators.ActionServiteur">
-      <point x="-42.25" y="-37.5" />
-      <point x="1502.191444256326" y="4079.0" />
-      <point x="1240.6200156848975" y="4079.0" />
-      <point x="-31.57142857142844" y="147.5" />
-    </edge>
     <edge source="decorators.ActionHeros" target="actors.Heros">
       <point x="-60.66666666666663" y="-81.5" />
       <point x="1842.9747775896594" y="620.0" />
       <point x="1889.7002677857377" y="620.0" />
       <point x="-13.941176470588289" y="169.5" />
+    </edge>
+    <edge source="decorators.ActionServiteurAddVie" target="decorators.ActionServiteur">
+      <point x="-42.25" y="-37.5" />
+      <point x="1502.191444256326" y="4079.0" />
+      <point x="1240.6200156848975" y="4079.0" />
+      <point x="-31.57142857142844" y="147.5" />
     </edge>
     <edge source="decorators.ActionServiteurAddDegats" target="decorators.ActionServiteur">
       <point x="-47.25" y="-37.5" />
@@ -284,23 +269,17 @@
       <point x="3141.4414442563257" y="4612.0" />
       <point x="0.0" y="15.0" />
     </edge>
-    <edge source="state.EtatJoue" target="state.Etat">
-      <point x="0.0" y="-48.0" />
-      <point x="4634.882520086176" y="1211.0" />
-      <point x="5115.098587113469" y="1211.0" />
-      <point x="-65.45000000000005" y="81.5" />
-    </edge>
     <edge source="actors.serviteurs.SanglierBrocheroc" target="actors.Serviteur">
       <point x="0.0" y="-15.0" />
       <point x="2761.6914442563257" y="3654.0" />
       <point x="1922.160194256326" y="3654.0" />
       <point x="73.21875" y="158.5" />
     </edge>
-    <edge source="state.EtatVictime" target="state.Etat">
-      <point x="0.0" y="-26.0" />
-      <point x="5422.882520086176" y="1221.0" />
-      <point x="5227.29858711347" y="1221.0" />
-      <point x="46.75" y="81.5" />
+    <edge source="state.EtatJoue" target="state.Etat">
+      <point x="0.0" y="-48.0" />
+      <point x="4634.882520086176" y="1211.0" />
+      <point x="5115.098587113469" y="1211.0" />
+      <point x="-65.45000000000005" y="81.5" />
     </edge>
     <edge source="state.EtatPoseCarte" target="state.Etat">
       <point x="0.0" y="-26.0" />
@@ -308,17 +287,17 @@
       <point x="5189.898587113469" y="1241.0" />
       <point x="9.349999999999909" y="81.5" />
     </edge>
-    <edge source="actors.sorts.Methamorphose" target="actors.Sort">
-      <point x="51.75" y="-15.0" />
-      <point x="996.883439489972" y="4602.0" />
-      <point x="3131.298587113469" y="4602.0" />
-      <point x="-10.14285714285711" y="15.0" />
-    </edge>
     <edge source="decorators.ActionHerosAddDefense" target="decorators.ActionHeros">
       <point x="-45.0" y="-37.5" />
       <point x="3498.798587113469" y="843.0" />
       <point x="1949.141444256326" y="843.0" />
       <point x="45.5" y="81.5" />
+    </edge>
+    <edge source="actors.sorts.Methamorphose" target="actors.Sort">
+      <point x="51.75" y="-15.0" />
+      <point x="996.883439489972" y="4602.0" />
+      <point x="3131.298587113469" y="4602.0" />
+      <point x="-10.14285714285711" y="15.0" />
     </edge>
     <edge source="actors.serviteurs.ChampionFriselame" target="actors.Serviteur">
       <point x="0.0" y="-15.0" />
@@ -349,7 +328,7 @@
       <point x="84.14999999999964" y="81.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="1.1829371816638372" x="2064.456194945543" y="2520.3520815124616" />
+  <settings layout="Hierarchic Group" zoom="0.6829371816638372" x="2367.8848547248244" y="2592.7219357029862" />
   <SelectedNodes>
     <node>actors.sorts.effet.Effet</node>
   </SelectedNodes>

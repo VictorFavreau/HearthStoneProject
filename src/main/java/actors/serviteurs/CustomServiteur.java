@@ -6,6 +6,9 @@ import utils.Player;
 
 import java.util.LinkedList;
 
+/**
+ * @author: Anais BESSON et Victor FAVREAU
+ */
 public class CustomServiteur extends Serviteur{
 
     public CustomServiteur(Player createur, int degats, int vie, boolean sleeping, boolean provocation, boolean volVie, boolean charge, LinkedList<Effet> listeEffets){

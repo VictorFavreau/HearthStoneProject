@@ -1,9 +1,10 @@
 package actors;
 
-//TODO
-
 import utils.Player;
 
+/**
+ * @author: Anais BESSON et Victor FAVREAU
+ */
 public class Sort extends Carte{
 
     protected Sort(){

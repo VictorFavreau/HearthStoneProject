@@ -7,7 +7,9 @@ import actors.sorts.effet.TypeEffet;
 import decorators.ActionServiteurSubVie;
 import utils.Player;
 
-
+/**
+ * @author: Anais BESSON et Victor FAVREAU
+ */
 public class Tourbillon extends Sort {
 
     public Tourbillon(Player createur){

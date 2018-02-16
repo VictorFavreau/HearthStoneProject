@@ -2,9 +2,11 @@ package decorators;
 
 import actors.sorts.effet.Effet;
 import utils.Player;
-
 import java.util.LinkedList;
 
+/**
+ * @author: Anais BESSON et Victor FAVREAU
+ */
 public class ActionServiteurTransform extends ActionServiteur {
 
     private Player createur;
