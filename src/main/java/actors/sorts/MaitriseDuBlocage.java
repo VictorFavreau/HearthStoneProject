@@ -14,7 +14,7 @@ public class MaitriseDuBlocage extends Sort{
         super(createur);
         this.typeCarte = TypeClasse.GUERRIER;
         this.nom = "Maitrise du bloquage";
-        this.description = "+5 d'armure au Heros et place une carte aléatoire de la pioche dans votre main";
+        this.description = "+5 d'armure au Heros et place une carte aleatoire de la pioche dans votre main";
         this.mana = 3;
         this.vie = 0;
 

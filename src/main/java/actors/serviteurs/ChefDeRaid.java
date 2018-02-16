@@ -14,7 +14,7 @@ public class ChefDeRaid extends Serviteur {
         super(createur);
         this.typeCarte = TypeClasse.NEUTRE;
         this.nom = "Chef de raid";
-        this.description = "+1 d'attaque pour tous les serviteurs alliés du plateau (tant que ce serviteur est vivant)";
+        this.description = "+1 d'attaque pour tous les serviteurs allies du plateau (tant que ce serviteur est vivant)";
         this.mana = 3;
         this.degats = 2;
         this.vie = 2;
@@ -24,7 +24,7 @@ public class ChefDeRaid extends Serviteur {
         this.charge = false;
 
         //Initialisation des effetsCarte
-        Effet effet = new Effet(TypeEffet.PLATEAU, createur, "+1 d'attaque pour tous les serviteurs alliés du plateau (tant que ce serviteur est vivant)");
+        Effet effet = new Effet(TypeEffet.PLATEAU, createur, "+1 d'attaque pour tous les serviteurs allies du plateau (tant que ce serviteur est vivant)");
         effet.setActionServiteur(new ActionServiteurAddDegats(1));
         this.effetsCarte.add(effet);
 

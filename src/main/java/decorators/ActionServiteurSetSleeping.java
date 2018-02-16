@@ -13,6 +13,6 @@ public class ActionServiteurSetSleeping extends ActionServiteur {
 
     @Override
     public boolean isSleeping() {
-        return sleeping;
+        return this.sleeping;
     }
 }

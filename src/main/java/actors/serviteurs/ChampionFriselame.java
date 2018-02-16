@@ -10,7 +10,7 @@ public class ChampionFriselame extends Serviteur {
         super(createur);
         this.typeCarte = TypeClasse.PALADIN;
         this.nom = "Chef de raid";
-        this.description = "+1 d'attaque pour tous les serviteurs alliés du plateau (tant que ce serviteur est vivant).";
+        this.description = "+1 d'attaque pour tous les serviteurs allies du plateau (tant que ce serviteur est vivant).";
         this.mana = 3;
         this.degats = 2;
         this.vie = 2;

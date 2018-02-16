@@ -9,7 +9,7 @@ public class SoldatCompteOr extends Serviteur {
     public SoldatCompteOr(Player createur){
         super(createur);
         this.typeCarte = TypeClasse.NEUTRE;
-        this.nom = "Soldat du compté-de-l'or";
+        this.nom = "Soldat du compte-de-l'or";
         this.description = "";
         this.mana = 1;
         this.degats = 1;

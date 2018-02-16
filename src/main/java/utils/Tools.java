@@ -84,7 +84,7 @@ public class Tools {
                     break;
 
                 default:
-                    log("Bien tenté, mais il m'est impossible d'effectuer l'action "+ str.toUpperCase() + " désolé... Recommencez !", LogType.WARNING);
+                    log("Bien tente, mais il m'est impossible d'effectuer l'action "+ str.toUpperCase() + " desole... Recommencez !", LogType.WARNING);
                     break;
             }
         }
@@ -123,11 +123,9 @@ public class Tools {
 
         TypeClasse classe = TypeClasse.NEUTRE;
         StringBuilder msg = new StringBuilder("Choisir la classe du " + player + "\n");
-        msg.append("(M) Mage, Effet: Inflige un point de dégâts à un adversaire (Serviteur ou Heros)\n");
+        msg.append("(M) Mage, Effet: Inflige 1 point de degats a un adversaire (Serviteur ou Heros)\n");
         msg.append("(P) Paladin, Effet: Invoque un serviteur 'Recrue de la main d'argent' 1:1\n");
-        msg.append("(G) Guerrier, Effet: Confère 2 points d'armure au Heros");
-
-
+        msg.append("(G) Guerrier, Effet: Confere 2 points d'armure au Heros");
 
         while(classe == TypeClasse.NEUTRE){
 
@@ -156,8 +154,8 @@ public class Tools {
     }
 
     /**
-     * Fonction permettant de recupérer l'entree clavier saisie par l'utilisateur
-     * @param msg message à afficher avant la saisie
+     * Fonction permettant de recuperer l'entree clavier saisie par l'utilisateur
+     * @param msg message a afficher avant la saisie
      * @return message saisi
      */
     public static String readInput(String msg){
@@ -179,7 +177,7 @@ public class Tools {
 
     /**
      * Retourne la valeur numerique saisie par l'utilisateur
-     * @param msg message à afficher
+     * @param msg message a afficher
      * @return valeur numerique saisie
      */
     public static Integer readIntegerValue(String msg){
@@ -210,7 +208,7 @@ public class Tools {
 
     /**
      * Retourne l'indice sur le plateau du joueur du serviteur saisi
-     * @param joueur joueur concerné
+     * @param joueur joueur concerne
      * @return Valeur sur le plateau du serviteur saisi
      */
     public static Serviteur readServiteur(Player joueur){
@@ -222,35 +220,11 @@ public class Tools {
         String msgErreur = "Oops, il semblerait que le serviteur n'existe pas...";
 
         Jeu.getPlateau().affichePlateauJoueur(joueur);
+        value = readIntegerValue(msg.toString());
+        serviteur = Jeu.getPlateau().getCarteByIndice(joueur, value);
 
-        while(!valide){
-
-            switch(joueur){
-
-                case JOUEUR1:
-                    value = readIntegerValue(msg.toString());
-
-                    if(value >= 0 && value < Jeu.getPlateau().getCartesJ1().size()){
-                        valide = true;
-                        serviteur = Jeu.getPlateau().getCarteJ1(value);
-                    } else {
-                        log(msgErreur, LogType.WARNING);
-                    }
-
-                    break;
-
-                case JOUEUR2:
-                    value = readIntegerValue(msg.toString());
-
-                    if(value >= 0 && value < Jeu.getPlateau().getCartesJ2().size()){
-                        valide = true;
-                        serviteur = Jeu.getPlateau().getCarteJ2(value);
-                    } else {
-                        log(msgErreur, LogType.WARNING);
-                    }
-
-                    break;
-            }
+        if(serviteur == null){
+            log(msgErreur, LogType.WARNING);
         }
 
         return serviteur;
@@ -314,7 +288,7 @@ public class Tools {
 
     /**
      * Formatteur de message
-     * @param msg message à afficher
+     * @param msg message a afficher
      * @param logType type de message
      */
     public static void log(String msg, LogType logType){
@@ -351,17 +325,17 @@ public class Tools {
         if(player == Player.JOUEUR1){
             return Player.JOUEUR2;
         } else {
-            return Player.JOUEUR2;
+            return Player.JOUEUR1;
         }
     }
 
     public static void finJeu(){
         if(Jeu.getJoueur1().isDead()){
-            log("Le joueur "+Player.JOUEUR2+" a gagné la partie.", LogType.WARNING);
+            log("Le joueur "+Player.JOUEUR2+" a gagne la partie.", LogType.WARNING);
         } else if (Jeu.getJoueur2().isDead()) {
-            log("Le joueur "+Player.JOUEUR1+" a gagné la partie.", LogType.WARNING);
+            log("Le joueur "+Player.JOUEUR1+" a gagne la partie.", LogType.WARNING);
         } else {
-            log("Merci d'avoir joué !", LogType.INFO);
+            log("Merci d'avoir joue !", LogType.INFO);
         }
     }
 
@@ -392,16 +366,15 @@ public class Tools {
                     break;
 
                 default:
-                    log("Bien tenté, mais il m'est impossible d'effectuer l'action "+ str.toUpperCase() + " désolé... Recommencez !", LogType.WARNING);
+                    log("Bien tente, mais il m'est impossible d'effectuer l'action "+ str.toUpperCase() + " desole... Recommencez !", LogType.WARNING);
                     break;
             }
         }
 
         return inputType;
 
-
-
     }
+
 
 
 

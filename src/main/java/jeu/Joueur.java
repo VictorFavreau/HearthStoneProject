@@ -27,6 +27,7 @@ public class Joueur {
     private Heros heros;
     private Deck deck;
     private LinkedList<Carte> main;
+    private boolean sortUtilise;
 
     public Joueur(TypeClasse classe, Player player) {
 
@@ -137,11 +138,18 @@ public class Joueur {
     }
 
     public void attaque(){
-        Jeu.getPlateau().attaque(player);
+        Jeu.getPlateau().attaque(this.player);
     }
 
     public void actionSpeciale(){
-        Jeu.getPlateau().actionSpeciale(player);
+
+        if(!this.sortUtilise){
+            Jeu.getPlateau().actionSpeciale(player);
+        } else {
+            Tools.log("Vous avez deja utilisé votre sort au cours de ce tour !", LogType.WARNING);
+        }
+
+
     }
 
     public void poseCarte() {
@@ -231,4 +239,7 @@ public class Joueur {
         return strBuilder.toString();
     }
 
+    public void setSortUtilise(boolean sortUtilise) {
+        this.sortUtilise = sortUtilise;
+    }
 }

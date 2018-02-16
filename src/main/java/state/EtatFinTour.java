@@ -14,6 +14,7 @@ public class EtatFinTour extends Etat {
         Jeu.getJoueurActuel().addStockMana();
         Jeu.getJoueurActuel().setMaxMana();
         Jeu.getJoueurActuel().wakeUpServiteurs();
+        Jeu.getJoueurActuel().setSortUtilise(false);
 
         this.tour.attenteAction();
     }

@@ -13,8 +13,8 @@ public class BenedictionDePuissance extends Sort {
     public BenedictionDePuissance(Player createur){
         super(createur);
         this.typeCarte = TypeClasse.PALADIN;
-        this.nom = "Bénédiction de puissance";
-        this.description = "Confère +3 d'attaque à un serviteur";
+        this.nom = "Benediction de puissance";
+        this.description = "Confere +3 d'attaque à un serviteur";
         this.mana = 1;
         this.vie = 0;
 

@@ -20,15 +20,15 @@ public class HerosMage extends Heros {
         this.defense = 0;
         this.mana = 1;
         this.stockMana = 1;
-        this.descr = "Inflige 1 point de dégats à un adversaire (Serviteur ou Heros)";
+        this.descr = "Inflige 1 point de degats a un adversaire (Serviteur ou Heros)";
         this.typeCibleEffet = TypeActeur.CHOIX;
 
         //initialisation Effet (dans ce cas, en fonction de la cible un des deux sera executé)
-        Effet effet = new Effet(TypeEffet.SERVITEUR, Tools.getAdversaire(joueur), "Inflige 1 point de dégats à un adversaire (Serviteur ou Heros)");
+        Effet effet = new Effet(TypeEffet.SERVITEUR, Tools.getAdversaire(joueur), "Inflige 1 point de degats a un adversaire (Serviteur ou Heros)");
         effet.setActionServiteur(new ActionServiteurSubVie(1));
         this.effetServiteur = effet;
 
-        effet = new Effet(TypeEffet.HEROS, Tools.getAdversaire(joueur), "Inflige 1 point de dégats à un adversaire (Serviteur ou Heros)");
+        effet = new Effet(TypeEffet.HEROS, Tools.getAdversaire(joueur), "Inflige 1 point de degats à un adversaire (Serviteur ou Heros)");
         effet.setActionHeros(new ActionHerosSubVie(1));
         this.effetHeros = effet;
     }

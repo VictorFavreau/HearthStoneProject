@@ -9,7 +9,7 @@ public class YetiNoroit extends Serviteur {
     public YetiNoroit(Player createur){
         super(createur);
         this.typeCarte = TypeClasse.NEUTRE;
-        this.nom = "Yéti Noroit";
+        this.nom = "Yeti Noroit";
         this.description = "";
         this.mana = 4;
         this.degats = 4;
