@@ -32,7 +32,7 @@ public class Main {
 
                 case HELP:
                     //Tools.help();
-                    Tools.log("HELP", LogType.INFO);
+                    Tools.afficheHelp();
                     break;
 
             }

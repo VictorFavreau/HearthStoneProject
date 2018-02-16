@@ -1,6 +1,7 @@
 package jeu;
 
 import actors.*;
+import actors.sorts.effet.TypeEffet;
 import decorators.*;
 import utils.LogType;
 import utils.Player;
@@ -323,7 +324,16 @@ public class Plateau {
                     break;
 
                 case SERVITEUR:
-                    if(isCartesPlateauJoueur(heros.getEffetServiteur().getCible())){
+
+                    boolean actionPossible = false;
+
+                    if(heros.getEffetServiteur().getTypeEffet() == TypeEffet.INVOCATION){
+                        actionPossible = true;
+                    } else {
+                        actionPossible = isCartesPlateauJoueur(heros.getEffetServiteur().getCible());
+                    }
+
+                    if(actionPossible){
                         heros.getEffetServiteur().action();
                         joueur.actionOnHero(new ActionHerosSubMana(2));
                         joueur.setSortUtilise(true);

@@ -33,6 +33,30 @@ public class Tools {
         log(stringBuffer.toString(), LogType.NORMAL);
     }
 
+    public static void afficheHelp(){
+
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Comment jouer:\n");
+        stringBuilder.append("\n");
+        stringBuilder.append("Chaque fois que le jeu auras besoin d'une action de votre part celle ci cera affichee de la façon suivante:\n");
+        stringBuilder.append("(CODE ACTION) ACTION\n");
+        stringBuilder.append("\n");
+        stringBuilder.append("Vous n'aurez alors qu'a entrer le CODE ACTION desire\n");
+        stringBuilder.append("\n");
+        stringBuilder.append("Guide des actions en jeu:\n");
+        stringBuilder.append("(P) POSER CARTE -> Le joueur pose une carte\n");
+        stringBuilder.append("(A) ATTAQUER -> Le joueur selectionne un serviteur attaquant et une cible a attaquer :\n");
+        stringBuilder.append("(E) EFFET HEROS -> Le joueur utilise l'effet de son heros contre 2 points de mana\n");
+        stringBuilder.append("(F) PASSE TOUR -> Le joueur passe son tour et laisse la main a l'adversaire\n");
+        stringBuilder.append("(M) MAIN -> Affiche la liste des cartes dans la main du joueur\n");
+        stringBuilder.append("(S) STAT PARTIE -> Affiche l'etat de la partie\n");
+        stringBuilder.append("(Q) QUITTER -> Met fin a la partie\n");
+        stringBuilder.append("\n");
+        stringBuilder.append("Bon jeu, et que le sort vous soit favorable !\n");
+
+        log(stringBuilder.toString(), LogType.NORMAL);
+    }
+
     /**
      * Retourne l'action saisie par l'utilisateur
      * @return InputType saisi

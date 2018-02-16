@@ -24,13 +24,21 @@ public class Consecration extends Sort{
         this.vie = 0;
 
         //initialisation des effetsCarte
-        Effet effet = new Effet(TypeEffet.PLATEAU, Tools.getAdversaire(createur), "Inflige 2 points de degats à tous les adversaires (Serviteurs)");
+        Effet effet = new Effet(TypeEffet.PLATEAU, Tools.getAdversaire(createur), "Inflige 2 points de degats à tous les Serviteurs Adverse");
         effet.setActionServiteur(new ActionServiteurSubVie(2));
         this.effetsCarte.add(effet);
 
-        Effet effet2 = new Effet(TypeEffet.HEROS, Tools.getAdversaire(createur), "Inflige 2 points de degats à tous les adversaires (Heros)");
-        effet2.setActionHeros(new ActionHerosSubVie(2));
+        Effet effet2 = new Effet(TypeEffet.PLATEAU, createur, "Inflige 2 points de degats à tous les Serviteurs du joueur actuel");
+        effet2.setActionServiteur(new ActionServiteurSubVie(2));
         this.effetsCarte.add(effet2);
+
+        Effet effet3 = new Effet(TypeEffet.HEROS, Tools.getAdversaire(createur), "Inflige 2 points de degats au Heros adverse");
+        effet3.setActionHeros(new ActionHerosSubVie(2));
+        this.effetsCarte.add(effet3);
+
+        Effet effet4 = new Effet(TypeEffet.HEROS, createur, "Inflige 2 points de degats au Heros du joueur actuel");
+        effet4.setActionHeros(new ActionHerosSubVie(2));
+        this.effetsCarte.add(effet4);
 
     }
 }
