@@ -19,16 +19,16 @@ public class Consecration extends Sort{
         super(createur);
         this.typeCarte = TypeClasse.PALADIN;
         this.nom = "Consecration";
-        this.description = "Inflige 2 points de degats à tous les adversaires";
+        this.description = "Inflige 2 points de degats a tous les adversaires";
         this.mana = 4;
         this.vie = 0;
 
         //initialisation des effetsCarte
-        Effet effet = new Effet(TypeEffet.PLATEAU, Tools.getAdversaire(createur), "Inflige 2 points de degats à tous les Serviteurs Adverse");
+        Effet effet = new Effet(TypeEffet.PLATEAU, Tools.getAdversaire(createur), "Inflige 2 points de degats a tous les Serviteurs Adverse");
         effet.setActionServiteur(new ActionServiteurSubVie(2));
         this.effetsCarte.add(effet);
 
-        Effet effet2 = new Effet(TypeEffet.PLATEAU, createur, "Inflige 2 points de degats à tous les Serviteurs du joueur actuel");
+        Effet effet2 = new Effet(TypeEffet.PLATEAU, createur, "Inflige 2 points de degats a tous les Serviteurs du joueur actuel");
         effet2.setActionServiteur(new ActionServiteurSubVie(2));
         this.effetsCarte.add(effet2);
 

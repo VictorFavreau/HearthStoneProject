@@ -16,12 +16,12 @@ public class BenedictionDePuissance extends Sort {
         super(createur);
         this.typeCarte = TypeClasse.PALADIN;
         this.nom = "Benediction de puissance";
-        this.description = "Confere +3 d'attaque à un serviteur";
+        this.description = "Confere +3 d'attaque a un serviteur";
         this.mana = 1;
         this.vie = 0;
 
         //initialisation des effetsCarte
-        Effet effet = new Effet(TypeEffet.SERVITEUR, createur, "+3 d'attaque à un serviteur");
+        Effet effet = new Effet(TypeEffet.SERVITEUR, createur, "+3 d'attaque a un serviteur");
         
         effet.setActionServiteur(new ActionServiteurAddDegats(3));
         this.effetsCarte.add(effet);

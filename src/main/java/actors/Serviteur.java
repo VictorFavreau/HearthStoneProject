@@ -12,7 +12,6 @@ import java.util.LinkedList;
  */
 public abstract class Serviteur extends Carte{
 
-
     protected int degats;
     protected boolean sleeping;
     protected boolean provocation;
@@ -24,7 +23,6 @@ public abstract class Serviteur extends Carte{
         if(this.effetsDie == null){
             this.effetsDie = new LinkedList<>();
         }
-
     }
 
     public Serviteur(Player createur){

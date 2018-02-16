@@ -31,10 +31,8 @@ public class Main {
                     break;
 
                 case HELP:
-                    //Tools.help();
                     Tools.afficheHelp();
                     break;
-
             }
 
             if(inputMenu == InputType.QUITTER) break;

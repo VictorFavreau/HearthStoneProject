@@ -63,20 +63,6 @@ public abstract class Carte extends Acteur {
     public void executeEffets(){
         for(Effet effet: effetsCarte) {
             Tools.log("Activation de l'effet:\n" + effet.getDescr(), LogType.INFO);
-/*
-            switch(effet.getTypeEffet()){
-                case SERVITEUR:
-                    Serviteur serviteur = Tools.readServiteur(effet.getCible());
-                    effet.setServiteur(serviteur);
-                    break;
-
-                case PLATEAU:
-
-                    break;
-
-                case PIOCHE:
-                    break;
-            }*/
 
             effet.action();
 

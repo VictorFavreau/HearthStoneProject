@@ -16,12 +16,12 @@ public class Tourbillon extends Sort {
         super(createur);
         this.typeCarte = TypeClasse.GUERRIER;
         this.nom = "Tourbillon";
-        this.description = "Inflige 1 points de degats à TOUS les serviteurs (y compris les votres)";
+        this.description = "Inflige 1 points de degats a TOUS les serviteurs (y compris les votres)";
         this.mana = 1;
         this.vie = 0;
 
         //initialisation des effetsCarte
-        Effet effet = new Effet(TypeEffet.PLATEAU, Player.TOUS, "Inflige 1 points de degats à TOUS les serviteurs (y compris les votres)");
+        Effet effet = new Effet(TypeEffet.PLATEAU, Player.TOUS, "Inflige 1 points de degats a TOUS les serviteurs (y compris les votres)");
         effet.setActionServiteur(new ActionServiteurSubVie(1));
         this.effetsCarte.add(effet);
 

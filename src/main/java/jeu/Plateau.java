@@ -369,6 +369,10 @@ public class Plateau {
         }
     }
 
+    /**
+     * Reveille les serviteurs endormis
+     * @param player joueur concerne
+     */
     public void wakeUpServiteurs(Player player){
 
         ArrayList<Serviteur> cartes;
@@ -565,7 +569,7 @@ public class Plateau {
     }
 
     /**
-     * Methode permettant de purger le plateau des Serviteurs morts au combat
+     * La faucheuse passe et purge le plateau des cadavres de serviteurs morts au combat.
      */
     public void purge() {
 

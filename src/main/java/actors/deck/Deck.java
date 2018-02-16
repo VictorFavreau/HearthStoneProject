@@ -17,7 +17,7 @@ public abstract class Deck {
     protected Player joueur;
 
 
-    protected Deck(Player joueur){
+    protected Deck(Player joueur) {
         this.joueur = joueur;
         this.cartesDeck = new LinkedList<>();
 
@@ -28,11 +28,11 @@ public abstract class Deck {
         this.cartesDeck.add(new YetiNoroit(joueur));
     }
 
-    public LinkedList<Carte> getDeck(){
+    public LinkedList<Carte> getDeck() {
         return this.cartesDeck;
     }
 
-    public Carte getRandomCard(){
+    public Carte getRandomCard() {
 
         Random randomGenerator = new Random();
         int randomIndice = randomGenerator.nextInt(cartesDeck.size());
