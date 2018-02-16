@@ -38,7 +38,7 @@ public class Tools {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Comment jouer:\n");
         stringBuilder.append("\n");
-        stringBuilder.append("Chaque fois que le jeu auras besoin d'une action de votre part celle ci cera affichee de la façon suivante:\n");
+        stringBuilder.append("Chaque fois que le jeu auras besoin d'une action de votre part celle ci sera affichee de la façon suivante:\n");
         stringBuilder.append("(CODE ACTION) ACTION\n");
         stringBuilder.append("\n");
         stringBuilder.append("Vous n'aurez alors qu'a entrer le CODE ACTION desire\n");
