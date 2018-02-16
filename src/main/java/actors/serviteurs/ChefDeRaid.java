@@ -8,6 +8,9 @@ import decorators.ActionServiteurAddDegats;
 import decorators.ActionServiteurSubDegats;
 import utils.Player;
 
+/**
+ * @author: Anais BESSON et Victor FAVREAU
+ */
 public class ChefDeRaid extends Serviteur {
 
     public ChefDeRaid(Player createur){

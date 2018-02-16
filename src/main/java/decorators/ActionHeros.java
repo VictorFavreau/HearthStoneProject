@@ -6,6 +6,9 @@ import actors.TypeClasse;
 import actors.heros.HerosGuerrier;
 import actors.sorts.effet.Effet;
 
+/**
+ * @author: Anais BESSON et Victor FAVREAU
+ */
 public abstract class ActionHeros extends Heros{
 
     Heros heros;

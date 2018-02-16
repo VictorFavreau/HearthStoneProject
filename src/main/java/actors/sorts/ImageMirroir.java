@@ -9,7 +9,9 @@ import utils.Player;
 
 import java.util.LinkedList;
 
-
+/**
+ * @author: Anais BESSON et Victor FAVREAU
+ */
 public class ImageMirroir extends Sort {
 
     public ImageMirroir(Player createur){

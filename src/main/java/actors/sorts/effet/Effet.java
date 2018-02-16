@@ -10,6 +10,9 @@ import utils.Tools;
 
 import java.util.LinkedList;
 
+/**
+ * @author: Anais BESSON et Victor FAVREAU
+ */
 public class Effet {
 
     private Player cible;

@@ -4,6 +4,9 @@ import actors.Serviteur;
 import actors.TypeClasse;
 import utils.Player;
 
+/**
+ * @author: Anais BESSON et Victor FAVREAU
+ */
 public class ChampionFriselame extends Serviteur {
 
     public ChampionFriselame(Player createur){

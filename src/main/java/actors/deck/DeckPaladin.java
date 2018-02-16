@@ -5,6 +5,9 @@ import actors.sorts.BenedictionDePuissance;
 import actors.sorts.Consecration;
 import utils.Player;
 
+/**
+ * @author: Anais BESSON et Victor FAVREAU
+ */
 public class DeckPaladin extends Deck{
 
     public DeckPaladin(Player joueur){

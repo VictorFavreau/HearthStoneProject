@@ -4,6 +4,9 @@ import actors.Serviteur;
 import actors.TypeClasse;
 import utils.Player;
 
+/**
+ * @author: Anais BESSON et Victor FAVREAU
+ */
 public class ChevaucheurDeLoup  extends Serviteur {
 
     public ChevaucheurDeLoup(Player createur){

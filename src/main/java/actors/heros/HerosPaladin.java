@@ -12,6 +12,9 @@ import utils.Tools;
 
 import java.util.LinkedList;
 
+/**
+ * @author: Anais BESSON et Victor FAVREAU
+ */
 public class HerosPaladin extends Heros {
 
     public HerosPaladin(Player joueur){
@@ -30,5 +33,4 @@ public class HerosPaladin extends Heros {
         this.effetServiteur = effet;
 
     }
-
 }

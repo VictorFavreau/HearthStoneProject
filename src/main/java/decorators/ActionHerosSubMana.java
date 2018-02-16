@@ -1,7 +1,8 @@
 package decorators;
 
-import actors.Heros;
-
+/**
+ * @author: Anais BESSON et Victor FAVREAU
+ */
 public class ActionHerosSubMana extends ActionHeros{
 
     int mana;

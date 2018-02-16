@@ -3,6 +3,9 @@ package actors;
 import actors.sorts.effet.Effet;
 import actors.sorts.effet.TypeEffet;
 
+/**
+ * @author: Anais BESSON et Victor FAVREAU
+ */
 public abstract class Heros extends Acteur {
 
     protected TypeClasse typeHeros;
@@ -20,8 +23,8 @@ public abstract class Heros extends Acteur {
 
     /**
      * GETTERS
+     * @return Le type du héros
      */
-
     public TypeClasse getTypeHeros() {
         return typeHeros;
     }

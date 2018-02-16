@@ -5,9 +5,11 @@ import utils.LogType;
 import state.InterfaceTour;
 import utils.Player;
 import utils.Tools;
-
 import java.util.Random;
 
+/**
+ * @author: Anais BESSON et Victor FAVREAU
+ */
 public class Jeu implements ObserverJeu{
 
     private static Plateau plateau;
@@ -65,6 +67,10 @@ public class Jeu implements ObserverJeu{
 
     }
 
+    /**
+     * Sélectionne un joueur aléatoirement
+     * @return Le joueur sélectionné
+     */
     private static Player getRandomPlayer(){
 
         Random randomGenerator = new Random();
@@ -82,14 +88,26 @@ public class Jeu implements ObserverJeu{
         }
     }
 
+    /**
+     * Récupère le plateau du jeu
+     * @return Le plateau du jeu en cours
+     */
     public static Plateau getPlateau() {
         return plateau;
     }
 
+    /**
+     * Récupère le joueur numéro 1
+     * @return Joueur1
+     */
     public static Joueur getJoueur1(){
         return joueur1;
     }
 
+    /**
+     * Récupère le joueur numéro 2
+     * @return Joueur2
+     */
     public static Joueur getJoueur2(){
         return joueur2;
     }
@@ -141,20 +159,34 @@ public class Jeu implements ObserverJeu{
 
 
     @Override
+    /**
+     * Permet de vérifier si le jeu est terminée ou non.
+     * Il peut se terminé si un des joueurs à perdu ou si un des joueurs à demander à arrêter le jeu.
+     * @return Retourne true si c'est la fin du jeu ou false si le jeu n'est pas terminée
+     */
     public boolean isFinJeu() {
         return finJeu;
     }
 
+    /**
+     * Instancie la fin du jeu
+     * @param finJeu : Variable exprimant si le jeu est terminé ou non
+     */
+    public void setFinJeu(boolean finJeu) {
+        this.finJeu = finJeu;
+    }
+
+    /**
+     * Permet d'arrêter le jeu et d'afficher le message de fin du jeu
+     */
     @Override
     public void finGame() {
-        this.finJeu = this.tour.isFinJeu();
+        this.setFinJeu(true);
         Tools.finJeu();
     }
 
-
-
     /**
-     * Affiche les stats de la partie
+     * Permet d'afficher les stats des deux joueurs
      */
     public static void afficheStat(){
         Tools.log(getJoueur1().toString(), LogType.JOUEUR1);

@@ -5,6 +5,9 @@ import actors.sorts.ImageMirroir;
 import actors.sorts.Methamorphose;
 import utils.Player;
 
+/**
+ * @author: Anais BESSON et Victor FAVREAU
+ */
 public class DeckMage extends Deck{
 
     public DeckMage(Player joueur){

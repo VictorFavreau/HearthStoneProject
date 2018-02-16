@@ -11,6 +11,9 @@ import utils.Tools;
 
 import java.util.LinkedList;
 
+/**
+ * @author: Anais BESSON et Victor FAVREAU
+ */
 public class Methamorphose extends Sort {
 
     public Methamorphose(Player createur){

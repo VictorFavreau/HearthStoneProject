@@ -10,7 +10,9 @@ import decorators.ActionServiteurSubVie;
 import utils.Player;
 import utils.Tools;
 
-
+/**
+ * @author: Anais BESSON et Victor FAVREAU
+ */
 public class Consecration extends Sort{
 
     public Consecration(Player createur){

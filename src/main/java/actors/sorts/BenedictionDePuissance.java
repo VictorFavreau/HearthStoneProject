@@ -7,7 +7,9 @@ import actors.sorts.effet.TypeEffet;
 import decorators.ActionServiteurAddDegats;
 import utils.Player;
 
-
+/**
+ * @author: Anais BESSON et Victor FAVREAU
+ */
 public class BenedictionDePuissance extends Sort {
 
     public BenedictionDePuissance(Player createur){
